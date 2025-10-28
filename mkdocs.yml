@@ -1,0 +1,37 @@
+site_name: KIT Lernfeld 7 (Datenbanken)
+
+theme:
+  name: material
+  language: de
+  font: false
+  favicon: bilder/favicon.png
+  logo: bilder/logo.png
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - include-markdown
+  - search
+
+extra_css:
+  - 'extra.css'
+
+use_directory_urls: false
+
+repo_url: https://github.com/herr-nm/MMBbS_KIT_LF07DB/
+
+site_url: https://herr-nm.github.io/MMBbS_KIT_LF07DB/
+
+nav:
+    - Informationen zur Kurslizenz: 'index.md'
+    - Kapitel 00 - Organisatorisches: 'kapitel_00.md'
+    - Kapitel 01 - Vorstellung des Modellunternehmens: 'kapitel_01.md'
+    - Kapitel 02 - Datenbanken modellieren: 'kapitel_02.md'
+    - Kapitel 03 - Datenbanken anlegen: 'kapitel_03.md'
+    - Kapitel 04 - Datenbanken abfragen: 'kapitel_04.md'
+    - Kapitel 05 - Datenbanken und ihre Inhalte ändern: 'kapitel_05.md'
+    - Kapitel 06 - Projekt mit LF7: 'kapitel_06.md'
+    - Kapitel 07 - IHK-nahe Übungsaufgaben: 'kapitel_07.md'
