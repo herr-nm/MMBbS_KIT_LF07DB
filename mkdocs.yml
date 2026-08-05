@@ -27,11 +27,10 @@ site_url: https://herr-nm.github.io/MMBbS_KIT_LF07DB/
 
 nav:
     - Informationen zur Kurslizenz: 'index.md'
-    - Kapitel 00 - Organisatorisches: 'kapitel_00.md'
-    - Kapitel 01 - Vorstellung des Modellunternehmens: 'kapitel_01.md'
-    - Kapitel 02 - Datenbanken modellieren: 'kapitel_02.md'
-    - Kapitel 03 - Datenbanken anlegen: 'kapitel_03.md'
-    - Kapitel 04 - Datenbanken abfragen: 'kapitel_04.md'
-    - Kapitel 05 - Datenbanken und ihre Inhalte ändern: 'kapitel_05.md'
-    - Kapitel 06 - Projekt mit LF7: 'kapitel_06.md'
-    - Kapitel 07 - IHK-nahe Übungsaufgaben: 'kapitel_07.md'
+    - Kapitel 00 - Organisatorisches: '00_organisatorisches.md'
+    - Kapitel 01 - Vorstellung des Modellunternehmens: '01_modellunternehmen.md'
+    - Kapitel 02 - Grundlagen der Datenbanken: '02_grundlagen.md'
+    - Kapitel 03 - Datenbanken modellieren: '03_modellieren.md'
+    - Kapitel 04 - Datenbanken anlegen: '04_anlegen.md'
+    - Kapitel 05 - Datenbanken abfragen: '05_abfragen.md'
+    - Kapitel 06 - Datenbanken und ihre Inhalte ändern: '06_aendern.md'
