@@ -1,0 +1,1978 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://herr-nm.github.io/MMBbS_KIT_LF07DB/02_grundlagen.html">
+      
+      
+        <link rel="prev" href="01_modellunternehmen.html">
+      
+      
+        <link rel="next" href="03_modellieren.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="bilder/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Kapitel 02 - Grundlagen der Datenbanken - KIT Lernfeld 7 (Datenbanken)</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kapitel-2-grundlagen-der-datenhaltung-in-anwendungen" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="index.html" title="KIT Lernfeld 7 (Datenbanken)" class="md-header__button md-logo" aria-label="KIT Lernfeld 7 (Datenbanken)" data-md-component="logo">
+      
+  <img src="bilder/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            KIT Lernfeld 7 (Datenbanken)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kapitel 02 - Grundlagen der Datenbanken
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/herr-nm/MMBbS_KIT_LF07DB/" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="KIT Lernfeld 7 (Datenbanken)" class="md-nav__button md-logo" aria-label="KIT Lernfeld 7 (Datenbanken)" data-md-component="logo">
+      
+  <img src="bilder/logo.png" alt="logo">
+
+    </a>
+    KIT Lernfeld 7 (Datenbanken)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/herr-nm/MMBbS_KIT_LF07DB/" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Informationen zur Kurslizenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="00_organisatorisches.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 00 - Organisatorisches
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01_modellunternehmen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 01 - Vorstellung des Modellunternehmens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 02 - Grundlagen der Datenbanken
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="02_grundlagen.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 02 - Grundlagen der Datenbanken
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#handlungssituation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handlungssituation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-20-datenhaltung-in-anwendungen-planen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 2.0: Datenhaltung in Anwendungen planen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 2.0: Datenhaltung in Anwendungen planen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a20-daten-fur-anwendungen-bereitstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|2.0: Daten für Anwendungen bereitstellen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|2.0: Daten für Anwendungen bereitstellen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aufgabe 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabenteil-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabenteil a
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabenteil-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabenteil b
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m200-arten-von-datenbanken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.0.0: Arten von Datenbanken
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m201-acid-eigenschaften" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.0.1: ACID-Eigenschaften
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-21-relationale-datenbank-systeme-beschreiben" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 2.1: Relationale Datenbank-Systeme beschreiben
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 2.1: Relationale Datenbank-Systeme beschreiben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a21-der-weg-zur-relationalen-datenbank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|2.1: Der Weg zur relationalen Datenbank
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|2.1: Der Weg zur relationalen Datenbank">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m210-datenbanksysteme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.1.0: Datenbanksysteme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m211-grundbegriffe-der-relationalen-datenbank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.1.1: Grundbegriffe der relationalen Datenbank
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m212-vorteile-zentraler-datenbanklosungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.1.2: Vorteile zentraler Datenbanklösungen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-22-fehler-in-relationalen-datenbanken-vermeiden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 2.2: Fehler in relationalen Datenbanken vermeiden
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 2.2: Fehler in relationalen Datenbanken vermeiden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a22-fehler-erkennen-und-bei-der-planung-vermeiden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|2.2: Fehler erkennen und bei der Planung vermeiden
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|2.2: Fehler erkennen und bei der Planung vermeiden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ausgangslage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ausgangslage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m220-fehlerbeschreibungen-in-relationalen-datenbanken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.2.0: Fehlerbeschreibungen in relationalen Datenbanken
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m221-normalisierung-von-datenbanken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.2.1: Normalisierung von Datenbanken
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03_modellieren.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 03 - Datenbanken modellieren
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04_anlegen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 04 - Datenbanken anlegen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05_abfragen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 05 - Datenbanken abfragen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06_aendern.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 06 - Datenbanken und ihre Inhalte ändern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#handlungssituation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handlungssituation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-20-datenhaltung-in-anwendungen-planen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 2.0: Datenhaltung in Anwendungen planen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 2.0: Datenhaltung in Anwendungen planen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a20-daten-fur-anwendungen-bereitstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|2.0: Daten für Anwendungen bereitstellen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|2.0: Daten für Anwendungen bereitstellen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aufgabe 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabenteil-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabenteil a
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabenteil-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabenteil b
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m200-arten-von-datenbanken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.0.0: Arten von Datenbanken
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m201-acid-eigenschaften" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.0.1: ACID-Eigenschaften
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-21-relationale-datenbank-systeme-beschreiben" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 2.1: Relationale Datenbank-Systeme beschreiben
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 2.1: Relationale Datenbank-Systeme beschreiben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a21-der-weg-zur-relationalen-datenbank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|2.1: Der Weg zur relationalen Datenbank
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|2.1: Der Weg zur relationalen Datenbank">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m210-datenbanksysteme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.1.0: Datenbanksysteme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m211-grundbegriffe-der-relationalen-datenbank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.1.1: Grundbegriffe der relationalen Datenbank
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m212-vorteile-zentraler-datenbanklosungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.1.2: Vorteile zentraler Datenbanklösungen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-22-fehler-in-relationalen-datenbanken-vermeiden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 2.2: Fehler in relationalen Datenbanken vermeiden
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 2.2: Fehler in relationalen Datenbanken vermeiden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a22-fehler-erkennen-und-bei-der-planung-vermeiden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|2.2: Fehler erkennen und bei der Planung vermeiden
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|2.2: Fehler erkennen und bei der Planung vermeiden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ausgangslage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ausgangslage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m220-fehlerbeschreibungen-in-relationalen-datenbanken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.2.0: Fehlerbeschreibungen in relationalen Datenbanken
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informationsmaterial-m221-normalisierung-von-datenbanken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informationsmaterial M|2.2.1: Normalisierung von Datenbanken
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="kapitel-2-grundlagen-der-datenhaltung-in-anwendungen">Kapitel 2: Grundlagen der Datenhaltung in Anwendungen</h1>
+<p><img alt="Kapitelbild" src="bilder/02_kapitelbild.png" /></p>
+<p>In diesem Kapitel werden Sie ...</p>
+<ul>
+<li>... die Datenhaltung in Anwendungen planen.</li>
+<li>... relationale und nicht-relationale Datenbanken unterscheiden.</li>
+<li>... Fehler in relationalen Datenbanken durch gute Planung vermeiden.</li>
+</ul>
+<hr />
+<h2 id="handlungssituation">Handlungssituation</h2>
+<p>Die Form &amp; Fokus Manufaktur GmbH plant im Rahmen ihrer digitalen Transformation den Aufbau einer zukunftsfähigen Dateninfrastruktur. Bisher existieren Insel-Lösungen: Der Onlineshop speichert Bestelldaten, die Konstruktion legt CAD-Dateien und Dokumentationen auf lokalen Laufwerken ab, und die Lagerhaltung erfolgt teilweise manuell.</p>
+<p><img alt="Dateninfrastruktur" src="bilder/02_dateninfrastruktur.png" /></p>
+<hr />
+<h2 id="kompetenz-20-datenhaltung-in-anwendungen-planen">Kompetenz 2.0: Datenhaltung in Anwendungen planen</h2>
+<p>Um die Geschäftsprozesse effizient miteinander zu verknüpfen, soll ein neues System entstehen. Dabei steht das Entwicklerteam vor der Frage, wie die sehr unterschiedlichen Datenstrukturen im Unternehmen am besten gespeichert werden. Es stehen relationale Datenbanken (SQL) und nicht-relationale Datenbanken (NoSQL) zur Auswahl.</p>
+<p><img alt="Datenhaltung" src="bilder/02_datenhaltung.png" /></p>
+<hr />
+<h3 id="arbeitsauftrag-a20-daten-fur-anwendungen-bereitstellen">Arbeitsauftrag A|2.0: Daten für Anwendungen bereitstellen</h3>
+<h4 id="aufgabe-1">Aufgabe 1</h4>
+<p>Führen Sie stichpunktartig vier Bereiche auf, in denen die Form &amp; Fokus Manufaktur Daten abspeichert und verwendet.</p>
+<h4 id="aufgabe-2">Aufgabe 2</h4>
+<p>Vergleichen Sie die Eignung einer relationalen SQL-Datenbank mit einer NoSQL-Datenbank für die Form &amp; Fokus Manufaktur. Informieren Sie sich dazu mithilfe des Informationsmaterial über die Arten der Datenbanken (M|2.0.0: Arten von Datenbanken) sowie über das ACID-Prinzip (M|2.0.1: ACID-Eigenschaften).</p>
+<h5 id="aufgabenteil-a">Aufgabenteil a</h5>
+<p>Für welche der identifizierten Datenarten ist eine SQL-Datenbank besonders gut geeignet? Begründen Sie Ihre Wahl.</p>
+<h5 id="aufgabenteil-b">Aufgabenteil b</h5>
+<p>Für welche Datenarten bietet eine NoSQL-Lösung klare Vorteile? Begründen Sie.</p>
+<h4 id="aufgabe-3">Aufgabe 3</h4>
+<p>Zu welcher Art der Datenhaltung würden Sie der Form &amp; Fokus Manufaktur raten?</p>
+<hr />
+<h3 id="informationsmaterial-m200-arten-von-datenbanken">Informationsmaterial M|2.0.0: Arten von Datenbanken</h3>
+<p>In der modernen Softwareentwicklung gibt es nicht „die eine“ Datenbank für alle Einsatzzwecke. Je nachdem, wie Daten strukturiert sind und wie schnell oder flexibel darauf zugegriffen werden muss, unterscheidet man grundlegend zwischen <strong>relationalen Datenbanken (SQL)</strong> und <strong>nicht-relationalen Datenbanken (NoSQL)</strong>.</p>
+<p><strong>Relationale Datenbanken (SQL)</strong></p>
+<p>Relational bedeutet, dass Daten in <strong>festen, zweidimensionalen Tabellen</strong> mit Spalten und Zeilen organisiert sind. Die Tabellen werden über Schlüssel (Primär- und Fremdschlüssel) logisch miteinander verknüpft. Zur Abfrage und Manipulation der Daten wird die standardisierte Sprache <strong>SQL</strong> (Structured Query Language) genutzt.</p>
+<ul>
+<li><strong>Hauptmerkmale:</strong></li>
+<li><strong>Strenges Schema:</strong> Die Struktur der Tabellen (welche Spalten existieren) muss vor dem Speichern exakt definiert sein.</li>
+<li><strong>Hohe Datenkonsistenz (ACID):</strong> Transaktionen werden garantiert fehlerfrei ausgeführt. Das System stellt sicher, dass Daten niemals widersprüchlich werden.</li>
+<li>
+<p><strong>Redundanzfrei:</strong> Durch Normalisierung werden doppelte Daten vermieden.</p>
+</li>
+<li>
+<p><strong>Typische Vertreter:</strong> MySQL, MariaDB, PostgreSQL, Microsoft SQL Server, Oracle.</p>
+</li>
+<li><strong>Beispiel aus der Form &amp; Fokus Manufaktur:</strong> Kundenverwaltung, Rechnungsstellung, Auftragsabwicklung und Lagerbestände (überall dort, wo exakte, strukturierte Daten und finanzielle Korrektheit entscheidend sind).</li>
+</ul>
+<p><strong>Nicht-relationale Datenbanken (NoSQL)</strong></p>
+<p>NoSQL steht für <em>„Not Only SQL“</em>. Diese Datenbanken verzichten bewusst auf starre Tabellenschemata und komplexe Tabellenverknüpfungen. Stattdessen speichern sie Daten in flexiblen Formaten wie <strong>Dokumenten (z. B. JSON)</strong>, Key-Value-Paaren, Graphen oder Spaltenfamilien.</p>
+<ul>
+<li><strong>Hauptmerkmale:</strong></li>
+<li><strong>Schema-Freiheit (Flexibilität):</strong> Jeder Datensatz kann eine völlig unterschiedliche Struktur oder unterschiedliche Felder besitzen, ohne dass vorher Tabellen angepasst werden müssen.</li>
+<li><strong>Hohe Skalierbarkeit &amp; Geschwindigkeit:</strong> Sie lassen sich sehr einfach auf viele Server verteilen und bieten extrem schnelle Lese- und Schreibzugriffe bei riesigen Datenmengen.</li>
+<li>
+<p><strong>Eventual Consistency:</strong> Zugunsten von Geschwindigkeit und Verfügbarkeit wird die absolute Konsistenz der Daten oft minimal verzögert.</p>
+</li>
+<li>
+<p><strong>Typische Vertreter:</strong> MongoDB (Dokumenten-Store), Redis (Key-Value-Store), Neo4j (Graph-Datenbank).</p>
+</li>
+<li><strong>Beispiel aus der Form &amp; Fokus Manufaktur:</strong> Speicherung von komplexen 3D-Drucker-Logdateien, Ablage von CAD-Metadaten zu Oldtimer-Teilen oder Produktbewertungen im Onlineshop.</li>
+</ul>
+<hr />
+<h3 id="informationsmaterial-m201-acid-eigenschaften">Informationsmaterial M|2.0.1: ACID-Eigenschaften</h3>
+<p>Damit in einer Datenbank bei gleichzeitigen Zugriffen oder Systemabstürzen keine Daten verloren gehen oder fehlerhaft werden, müssen Transaktionen zuverlässig abgewickelt werden. Eine <strong>Transaktion</strong> ist eine Folge von Datenbankoperationen (z. B. Buchen, Ändern, Löschen), die als <strong>eine einzige unteilbare Einheit</strong> ausgeführt wird.</p>
+<p>Das <strong>ACID-Prinzip</strong> beschreibt die vier Grundanforderungen, die ein relationales Datenbankmanagementsystem (DBMS) erfüllen muss, um höchste Datenkonsistenz und Zuverlässigkeit zu garantieren.</p>
+<p><strong>A – Atomicity (Atomarität / Unteilbarkeit)</strong></p>
+<blockquote>
+<p><strong>Grundsatz:</strong> <em>Ganz oder gar nicht.</em></p>
+</blockquote>
+<p>Eine Transaktion besteht oft aus mehreren Einzelschritten. Atomarität garantiert, dass entweder <strong>alle</strong> Schritte einer Transaktion erfolgreich ausgeführt werden oder <strong>gar kein</strong> Schritt. Bricht eine Transaktion auf halbem Weg ab (z. B. durch einen Stromausfall), wird der Ursprungszustand vollständig wiederhergestellt (<strong>Rollback</strong>).</p>
+<ul>
+<li><strong>Beispiel aus der Form &amp; Fokus Manufaktur:</strong>
+Ein Kunde kauft im Straßenladen ein vorgefertigtes Bauteil. Die Transaktion besteht aus zwei Schritten: 1. <em>Lagerbestand um 1 verringern</em> und 2. <em>Kassenbestand um 25,00 € erhöhen</em>. Bricht das System nach Schritt 1 ab, macht das DBMS die Lageränderung rückgängig. Es gibt keine "halben" Buchungen.</li>
+</ul>
+<p><strong>C – Consistency (Konsistenz / Datenkonsistenz)</strong></p>
+<blockquote>
+<p><strong>Grundsatz:</strong> <em>Regeln werden niemals verletzt.</em></p>
+</blockquote>
+<p>Eine Transaktion führt die Datenbank von einem gültigen Zustand in einen <strong>anderen gültigen Zustand</strong> über. Alle definierten Regeln (z. B. Primärschlüssel-Eindeutigkeit, Fremdschlüssel-Beziehungen oder Datentypen) müssen vor und nach der Transaktion eingehalten werden. Wäre das Ergebnis einer Transaktion ungültig, wird sie abgebrochen.</p>
+<ul>
+<li><strong>Beispiel aus der Form &amp; Fokus Manufaktur:</strong>
+In der Datenbank ist geregelt, dass der Lagerbestand eines Materials nicht negativ sein darf (<code>Bestand &gt;= 0</code>). Versucht eine Transaktion, 5 Rollen Filament abzubuchen, obwohl nur noch 2 auf Lager sind, lehnt das DBMS die Transaktion ab.</li>
+</ul>
+<p><strong>I – Isolation (Isolierung / Entkopplung)</strong></p>
+<blockquote>
+<p><strong>Grundsatz:</strong> <em>Gleichzeitige Zugriffe stören sich nicht.</em></p>
+</blockquote>
+<p>Greifen mehrere Benutzer oder Prozesse gleichzeitig auf die Datenbank zu, sorgt die Isolation dafür, dass sich die Transaktionen <strong>nicht gegenseitig beeinflussen</strong>. Jede Transaktion wird so ausgeführt, als wäre sie die einzige auf dem System. Unfertige Zwischenstände einer Transaktion sind für andere Benutzer unsichtbar.</p>
+<ul>
+<li><strong>Beispiel aus der Form &amp; Fokus Manufaktur:</strong>
+Der Onlineshop und ein Mitarbeiter im Straßenladen greifen exakt im selben Moment auf die letzte Rolle <em>PLA Schwarz</em> zu. Durch die Isolierung verarbeitet das DBMS die Anfragen nacheinander (z. B. durch temporäre Sperren). So wird verhindert, dass beide Kunden dieselbe letzte Rolle kaufen.</li>
+</ul>
+<p><strong>D – Durability (Dauerhaftigkeit / Beständigkeit)</strong></p>
+<blockquote>
+<p><strong>Grundsatz:</strong> <em>Einmal gespeichert, bleibt gespeichert.</em></p>
+</blockquote>
+<p>Sobald eine Transaktion erfolgreich abgeschlossen ist (sog. <strong>Commit</strong>), sind die Daten <strong>dauerhaft und unverlierbar</strong> in der Datenbank gespeichert. Selbst ein unmittelbarer Systemabsturz oder ein Stromausfall direkt nach der Bestätigung darf nicht dazu führen, dass diese Daten verloren gehen.</p>
+<ul>
+<li><strong>Beispiel aus der Form &amp; Fokus Manufaktur:</strong>
+Eine Oldtimer-Rekonstruktion wurde erfolgreich als erledigt im System verbucht und die Bestätigung angezeigt. Fällt eine Sekunde später der Strom im Gebäude aus, ist der geänderte Status nach dem Neustart des Servers garantiert noch genau so vorhanden.</li>
+</ul>
+<p><strong>Das ACID-Prinzip im Überblick</strong></p>
+<table>
+<thead>
+<tr>
+<th>Buchstabe</th>
+<th>Begriff</th>
+<th>Bedeutung</th>
+<th>Praxis-Folge bei Fehlen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td><strong>Atomarität</strong></td>
+<td>Transaktion ist unteilbar (ganz oder gar nicht).</td>
+<td>Unvollständige Buchungen (z. B. Geld abgebucht, aber Ware nicht reserviert).</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td><strong>Konsistenz</strong></td>
+<td>Datenbankregeln bleiben immer gültig.</td>
+<td>Ungültige oder unlogische Daten (z. B. negative Lagerbestände).</td>
+</tr>
+<tr>
+<td><strong>I</strong></td>
+<td><strong>Isolation</strong></td>
+<td>Parallele Transaktionen beeinflussen sich nicht.</td>
+<td>Doppelverkäufe oder falsche Zwischenwerte bei Mehrfachzugriff.</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td><strong>Dauerhaftigkeit</strong></td>
+<td>Erfolgreiche Datenänderungen bleiben dauerhaft erhalten.</td>
+<td>Datenverlust bei Abstürzen direkt nach der Eingabe.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="kompetenz-21-relationale-datenbank-systeme-beschreiben">Kompetenz 2.1: Relationale Datenbank-Systeme beschreiben</h2>
+<p>Bei der Form &amp; Fokus Manufaktur GmbH stehen die Zeichen auf Veränderung. Der Inhaber hat erkannt: Die bisherige Praxis, Daten verstreut in Excel-Tabellen, Textdateien und den internen Speichern einzelner Maschinen abzulegen, stößt an ihre Grenzen.</p>
+<p>Besonders deutlich wird das Problem im Alltag:</p>
+<ul>
+<li>Ein Kunde ruft an und fragt nach dem Status seiner Oldtimer-Rekonstruktion. Der Kundenservice muss erst in der Werkstatt nachfragen, weil der aktuelle Fortschritt nur auf dem Werkstatt-PC notiert ist.</li>
+<li>Ein Bauteil muss nachproduziert werden. Das dazugehörige CAD-Modell ist zwar gespeichert, aber die Information, für welchen exakten Fahrzeugtyp und mit welchem Filamend-Material der Erstdruck erfolgreich war, liegt in einer separaten Tabelle auf dem Rechner der Konstruktion.</li>
+<li>Im Lager wird Material für einen Großauftrag reserviert, der Onlineshop weiß davon aber nichts und verkauft die letzten Holzplatten zeitgleich an einen Online-Kunden.</li>
+</ul>
+<p>Um diese Ineffizienzen zu beenden, fordert die Geschäftsleitung einen klaren Schnitt: Sämtliche Kernprozesse sollen über ein relationales Datenbank-System (RDBMS) zentralisiert werden. Sie werden damit beauftragt, die Grundlagen für diese Umstellung zu erarbeiten und dem Team zu vermitteln.</p>
+<p><img alt="Relationale Datenbank" src="bilder/02_rel_db.png" /></p>
+<hr />
+<h3 id="arbeitsauftrag-a21-der-weg-zur-relationalen-datenbank">Arbeitsauftrag A|2.1: Der Weg zur relationalen Datenbank</h3>
+<h4 id="aufgabe-1_1">Aufgabe 1</h4>
+<p>Arbeiten Sie heraus, welche generellen Vorteile ein hoher Digitalisierungsgrad und eine systematische, zentrale Datenhaltung für die Abläufe der Manufaktur bringen.</p>
+<h4 id="aufgabe-2_1">Aufgabe 2</h4>
+<p>Informieren Sie sich über die Komponenten eines Datenbanksystems (M|2.1.0: Datenbanksysteme) und erläutern Sie das Zusammenspiel dieser drei Komponenten anhand eines konkreten Szenarios aus der Manufaktur:</p>
+<ul>
+<li>Datenbank (DB)</li>
+<li>Datenbankmanagementsystem (DBMS)</li>
+<li>Datenbanksystem (DBS)</li>
+</ul>
+<h4 id="aufgabe-3_1">Aufgabe 3</h4>
+<p>Stellen Sie die Funktionsweise einer relationalen Datenbank (SQL) vereinfacht dar (Stichworte: Tabellen, Zeilen/Datensätze, Spalten/Attribute, Primär- und Fremdschlüssel). Nutzen Sie hierfür das Informationsmaterial M|2.1.1: Funktionsweise einer relationalen Datenbank (SQL).</p>
+<h4 id="aufgabe-4">Aufgabe 4</h4>
+<p>Beschreiben Sie anhand konkreter Beispiele aus der Manufaktur, welche Kernvorteile eine relationale Datenbank gegenüber Dateilisten hat. Nutzen Sie M|2.1.2: Vorteile zentraler Datenbanklösungen für einen Überblick.</p>
+<h4 id="aufgabe-5">Aufgabe 5</h4>
+<p>Identifizieren Sie drei Unternehmensbereiche der Form &amp; Fokus Manufaktur, für die ein relationales Datenbank-System die ideale Wahl ist.</p>
+<p>Begründen Sie für jeden Bereich kurz, warum die Daten hier eine feste, strukturierte Form haben und wie die Tabellen logisch miteinander verknüpft sein könnten.</p>
+<hr />
+<h3 id="informationsmaterial-m210-datenbanksysteme">Informationsmaterial M|2.1.0: Datenbanksysteme</h3>
+<p>Wer im Alltag von einer "Datenbank" spricht, meint meist das Gesamtsystem. Fachlich unterscheidet man in der Informationstechnik jedoch genau zwischen drei Begriffen: der <strong>Datenbank (DB)</strong>, dem <strong>Datenbankmanagementsystem (DBMS)</strong> und dem <strong>Datenbanksystem (DBS)</strong>.</p>
+<p><strong>1. Die Datenbank (DB) – Die eigentliche Datensammlung</strong></p>
+<p>Eine <strong>Datenbank</strong> ist die strukturierte Sammlung von Daten, die logisch zusammengehören. Sie liegt in digitaler Form auf einem Speichermedium (z. B. einer Festplatte oder SSD).</p>
+<p><em>Die Datenbank ist wie ein moderner </em><em>Karteikasten</em><em>, in dem alle Kärtchen ordentlich einsortiert sind. Ohne jemanden, der darin liest oder schreibt, sind die Daten dort aber erst einmal nur "ruhende Informationen".</em></p>
+<p><strong>2. Das Datenbankmanagementsystem (DBMS) – Die intelligente Software</strong></p>
+<p>Das <strong>DBMS</strong> ist die Software, die die Datenbank verwaltet. Es ist die Steuerungseinheit zwischen den Anwenderprogrammen (z.B. dem Onlineshop oder der CAD-Software) und den eigentlichen Daten auf der Festplatte.</p>
+<p>Das DBMS erfüllt wichtige Aufgaben:</p>
+<ul>
+<li><strong>Daten speichern und abrufen:</strong> Es nimmt Anfragen entgegen und liefert die passenden Daten zurück.</li>
+<li><strong>Zugriffsrechte verwalten:</strong> Es sichert ab, wer Daten sehen oder verändern darf (Sicherheit).</li>
+<li><strong>Datenintegrität schützen:</strong> Es sorgt dafür, dass keine fehlerhaften oder unvollständigen Daten gespeichert werden.</li>
+<li><strong>Mehrbenutzerbetrieb regeln:</strong> Es verhindert Konflikte, wenn mehrere Personen gleichzeitig auf dieselben Daten zugreifen.</li>
+</ul>
+<p><em>Das DBMS ist wie der </em><em>Bibliothekar</em><em>. Er weiß exakt, wo welches Buch steht, achtet darauf, dass niemand Bücher beschädigt, regelt, wer welche Bücher ausleihen darf, und heftet neue Seiten an der richtigen Stelle ein.</em></p>
+<p><strong>3. Das Datenbanksystem (DBS) – Das Gesamtsystem</strong></p>
+<p>Das <strong>Datenbanksystem</strong> ist der Oberbegriff für das Zusammenspiel aus beiden Komponenten: <strong>DBS = DB + DBMS</strong>.</p>
+<p>Ein Datenbanksystem umfasst also sowohl die gespeicherten Daten (DB) als auch die Software, die diese Daten verwaltet (DBMS).</p>
+<p><em>Das Datenbanksystem ist die </em><em>gesamte Bibliothek</em><em> – inklusive des Gebäudes, aller Bücher (DB) und des Personals (DBMS), das den Laden am Laufen hält.</em></p>
+<p><strong>Das Zusammenspiel in der Praxis</strong></p>
+<p>Wie arbeiten diese drei Komponenten zusammen, wenn bei <em>Form &amp; Fokus</em> ein Auftrag bearbeitet wird?</p>
+<div class="highlight"><pre><span></span><code>[Anwendung: Shop / Kasse]
+           │
+           ▼ (1. SQL-Anfrage: &quot;Gib mir den Lagerbestand von Filament Rot&quot;)
+┌────────────────────────────────────────────────────────┐
+│ DATENBANKSYSTEM (DBS)                                  │
+│                                                        │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │  Datenbankmanagementsystem (DBMS)                │  │
+│  │  - Prüft Berechtigung                            │  │
+│  │  - Verarbeitet die Anfrage                       │  │
+│  └────────────────────────┬─────────────────────────┘  │
+│                           │                            │
+│                           ▼ (2. Liest Datenfeld)       │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │  Datenbank (DB)                                  │  │
+│  │  [Tabellen auf der Festplatte]                   │  │
+│  └──────────────────────────────────────────────────┘  │
+└────────────────────────────────────────────────────────┘
+</code></pre></div>
+<ol>
+<li><strong>Der Impuls:</strong> Der Kundenservice schaut im System nach, ob genügend rotes PLA-Filament für ein Oldtimer-Ersatzteil auf Lager ist.</li>
+<li><strong>Die Aufgabe des DBMS:</strong> Das DBMS schaltet sich dazwischen. Es prüft, ob der Mitarbeiter das Recht hat, Lagerbestände abzufragen, übersetzt die Anfrage und sucht gezielt in der Datenbank.</li>
+<li><strong>Der Zugriff auf die DB:</strong> Das DBMS liest den Wert aus der entsprechenden Tabelle der Datenbank ab und sendet das Ergebnis ("12 Rollen verfügbar") zurück an den Bildschirm des Mitarbeiters.</li>
+</ol>
+<hr />
+<h3 id="informationsmaterial-m211-grundbegriffe-der-relationalen-datenbank">Informationsmaterial M|2.1.1: Grundbegriffe der relationalen Datenbank</h3>
+<p>Das <strong>relationale Datenbankmodell</strong> ist die am weitesten verbreitete Form der strukturierten Datenhaltung. Die Grundidee ist einfach: Alle Daten werden in zweidimensionalen <strong>Tabellen</strong> (technisch: <em>Relationen</em>) organisiert, die über gemeinsame Datenfelder logisch miteinander verknüpft werden.</p>
+<p><strong>1. Tabelle (Relation)</strong></p>
+<p>Eine Tabelle fasst gleichartige Datenobjekte zusammen (z. B. alle Kunden oder alle Materialbestände). Sie besteht aus Zeilen und Spalten.</p>
+<p><strong>2. Datensatz (Zeile / Tupel)</strong></p>
+<p>Eine Zeile in einer Tabelle repräsentiert ein <strong>einzelnes, konkretes Objekt</strong>.</p>
+<ul>
+<li><em>Beispiel:</em> Eine Zeile in der Kunden-Tabelle enthält die vollständigen Daten von <em>einem</em> bestimmten Kunden.</li>
+</ul>
+<p><strong>3. Attribut (Spalte / Feld)</strong></p>
+<p>Eine Spalte beschreibt eine <strong>Eigenschaft</strong>, die alle Datensätze dieser Tabelle gemeinsam haben.</p>
+<ul>
+<li><em>Beispiel:</em> Die Spalten <code>Vorname</code>, <code>Nachname</code>, <code>E-Mail</code> und <code>Ort</code> in der Kunden-Tabelle.</li>
+</ul>
+<p><strong>4. Attributwert (Datenfeld / Wert)</strong></p>
+<p>Der konkrete Inhalt in der Zelle einer Spalte für einen bestimmten Datensatz.</p>
+<ul>
+<li><em>Beispiel:</em> Der Attributwert <code>"Filament PLA rot"</code> in der Spalte <code>Materialbezeichnung</code>.</li>
+</ul>
+<p><strong>5. Primärschlüssel (Primary Key - PK)</strong></p>
+<p>Ein Attribut (oder eine Kombination mehrerer Attribute), das jeden Datensatz innerhalb einer Tabelle <strong>eindeutig identifiziert</strong>. Ein Primärschlüssel darf niemals doppelt vorkommen und niemals leer (<code>NULL</code>) sein.</p>
+<ul>
+<li><em>Beispiel:</em> Die <code>Kunden_ID</code> stellt sicher, dass zwei Kunden mit demselben Namen (z. B. "Max Mustermann") eindeutig unterschieden werden können.</li>
+</ul>
+<p><strong>6. Fremdschlüssel (Foreign Key - FK)</strong></p>
+<p>Ein Attribut in einer Tabelle, das auf den <strong>Primärschlüssel einer anderen Tabelle</strong> verweist. Dadurch entsteht die logische Verknüpfung (Relation) zwischen zwei Tabellen.</p>
+<ul>
+<li><em>Beispiel:</em> In der Tabelle <code>Bestellungen</code> steht die <code>Kunden_ID</code> als Fremdschlüssel. So ist klar, welcher Kunde welche Bestellung aufgegeben hat, ohne dass alle Kundendaten in der Bestellung doppelt getippt werden müssen.</li>
+</ul>
+<p><strong>Beispiel aus der Form &amp; Fokus Manufaktur</strong></p>
+<p>Tabelle <strong><code>Kunde</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Kunden_ID (PK)</th>
+<th>Nachname</th>
+<th>Ort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>101</strong></td>
+<td>Neumann</td>
+<td>Hannover</td>
+</tr>
+<tr>
+<td><strong>102</strong></td>
+<td>Weber</td>
+<td>Hamburg</td>
+</tr>
+</tbody>
+</table>
+<p>Tabelle <strong><code>Bestellung</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Bestell_ID (PK)</th>
+<th>Datum</th>
+<th>Kunden_ID (FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5001</td>
+<td>12.10.2026</td>
+<td><strong>101</strong></td>
+</tr>
+<tr>
+<td>5002</td>
+<td>13.10.2026</td>
+<td><strong>101</strong></td>
+</tr>
+<tr>
+<td>5003</td>
+<td>14.10.2026</td>
+<td><strong>102</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Der Fremdschlüssel <code>Kunden_ID</code> in der Tabelle <em>Bestellung</em> verweist direkt auf den Primärschlüssel <code>Kunden_ID</code> der Tabelle <em>Kunde</em>. So sieht man sofort, dass Kunde Neumann (ID 101) zwei Bestellungen getätigt hat.</p>
+<hr />
+<h3 id="informationsmaterial-m212-vorteile-zentraler-datenbanklosungen">Informationsmaterial M|2.1.2: Vorteile zentraler Datenbanklösungen</h3>
+<p>Eine relationale Datenbank bietet im Vergleich zu Dateilisten oder analoger Datenhaltung zahlreiche Vorteile:</p>
+<ul>
+<li>Zentralisierung: Alle Daten befinden sich an einem Ort und sind über einheitliche Schnittstellen abrufbar.</li>
+<li>Mehrbenutzerzugriff: Mehrere Personen können gleichzeitig auf die Daten zugreifen, ohne Datenverlust.</li>
+<li>Datensicherheit: Berechtigungskonzepte sorgen dafür, dass nur autorisierte Personen auf bestimmte Daten zugreifen können.</li>
+<li>Vermeidung von Redundanzen: Daten werden einmalig gespeichert und mehrfach nutzbar gemacht.</li>
+<li>Konsistenz: Durch Regeln (z. B. Beziehungen, Pflichtfelder) wird sichergestellt, dass Daten vollständig und korrekt sind.</li>
+<li>Automatisierung: Prozesse wie die Rechnungserstellung oder das Einpflegen von Aufträgen können automatisiert werden.</li>
+<li>Skalierbarkeit: Datenbanken wachsen problemlos mit dem Unternehmen mit.</li>
+<li>Anbindung von Software: Moderne Anwendungen greifen direkt auf Datenbanken zu, z. B. Werkstattplaner, CRM-Tools oder Buchhaltungssoftware.</li>
+</ul>
+<hr />
+<h2 id="kompetenz-22-fehler-in-relationalen-datenbanken-vermeiden">Kompetenz 2.2: Fehler in relationalen Datenbanken vermeiden</h2>
+<p>Bei der manuellen Erfassung der Oldtimer-Bauteile und Kundenadressen kommt es im Alltag der Manufaktur immer wieder zu Problemen: Kundennamen sind unterschiedlich geschrieben, beim Löschen einer Bestellung verschwindet plötzlich die gesamte Kundenadresse und Materialpreise müssen an mehreren Stellen gleichzeitig geändert werden. Um dieses Datenchaos dauerhaft zu verhindern, soll die geplante SQL-Datenbank so strukturiert werden, dass solche Fehler durch eine saubere Normalisierung von vornherein ausgeschlossen sind.</p>
+<p><img alt="Fehler in DB" src="bilder/02_fehler_db.png" /></p>
+<hr />
+<h3 id="arbeitsauftrag-a22-fehler-erkennen-und-bei-der-planung-vermeiden">Arbeitsauftrag A|2.2: Fehler erkennen und bei der Planung vermeiden</h3>
+<h4 id="ausgangslage">Ausgangslage</h4>
+<p>In der Form &amp; Fokus Manufaktur GmbH wurde vorübergehend versucht, alle Kunden- und Auftragsdaten in einer einzigen, großen unnormalisierten Tabelle zu verwalten. Das führt im Betriebsalltag regelmäßig zu Missverständnissen und Fehlern.</p>
+<p>Hier ein Ausschnitt aus der aktuellen Tabelle <strong><code>Auftragsübersicht</code></strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Kunde</th>
+<th style="text-align: left;">Ort</th>
+<th style="text-align: left;">Bauteile</th>
+<th style="text-align: left;">Material (Preis/kg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Klaus Müller</td>
+<td style="text-align: left;">Hannover</td>
+<td style="text-align: left;">Schalterknopf VW T3, Abdeckung Porsche 911</td>
+<td style="text-align: left;">PLA Schwarz (25,00 €), PETG Transparent (30,00 €)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sarah Schmidt</td>
+<td style="text-align: left;">Hamburg</td>
+<td style="text-align: left;">Zierleiste MB W123</td>
+<td style="text-align: left;">ABS Grau (35,00 €)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tom Becker</td>
+<td style="text-align: left;">Bremen</td>
+<td style="text-align: left;">Halterung BMW E30, Clip Audi 80</td>
+<td style="text-align: left;">PETG Transparent (30,00 €), PLA Schwarz (25,00 €)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="aufgabe-1_2">Aufgabe 1</h4>
+<p>Betrachten Sie die Beispieltabelle <code>Auftragsübersicht</code> und nutzen Sie das Informationsmaterial M|2.2.0: Fehlerbeschreibungen in relationalen Datenbanken.</p>
+<ol>
+<li>Erklären Sie in eigenen Worten den Begriff Redundanz.</li>
+<li>Identifizieren Sie konkrete Datenfelder in der Tabelle, die mehrfach doppelt abgespeichert sind, und beschreiben Sie, warum diese Datenhaltung uneffizient ist.</li>
+</ol>
+<h4 id="aufgabe-2_2">Aufgabe 2</h4>
+<p>Durch die unsaubere Tabellenstruktur entstehen im Alltag gefährliche Datenfehler (sogenannte Anomalien). Analysieren Sie folgende drei Praxis-Szenarien aus der Manufaktur und ordnen Sie ihnen den passenden Fachbegriff zu:</p>
+<ul>
+<li><strong>Szenario A:</strong> Der Lieferant hebt den Preis für das Material <em>PLA Schwarz</em> von 25,00 € auf 28,00 € an. Ein Mitarbeiter passt den Preis an, vergisst aber dies bei einem Fall.</li>
+<li>
+<p><em>Welche Anomalie liegt hier vor? Beschreiben Sie die Auswirkung auf die Datenkonsistenz.</em></p>
+</li>
+<li>
+<p><strong>Szenario B:</strong> Ein neuer Kunde möchte sich registrieren lassen, hat aber noch keinen konkreten Auftrag erteilt. Die Datenbank verlangt jedoch zwingend eine <code>Auftrags_ID</code> für jeden neuen Datensatz.</p>
+</li>
+<li>
+<p><em>Welche Anomalie verhindert die Erfassung des Neukunden? Begründen Sie.</em></p>
+</li>
+<li>
+<p><strong>Szenario C:</strong> Der Kunde <em>Becker, Tom</em> storniert seinen einzigen Auftrag. Der Datensatz wird aus der Tabelle gelöscht.</p>
+</li>
+<li><em>Welches unbeabsichtigte Problem entsteht durch das Löschen dieser Zeile? Welche Anomalie tritt hier auf?</em></li>
+</ul>
+<h4 id="aufgabe-3_2">Aufgabe 3</h4>
+<p>Um diese Anomalien dauerhaft zu beseitigen, muss die unstrukturierte Tabelle schrittweise in ein sauberes relationales Modell überführt werden (Normalisierung). Nutzen Sie zu Ihrer Information das M|2.2.1: Normalisierung von Datenbanken.</p>
+<ol>
+<li>Erste Normalform (1. NF): Erläutern Sie die Bedingung der <em>Atomarität</em> am Beispiel der Spalte <code>Kunde_Name</code>. Wie muss diese Spalte aufgeteilt werden?</li>
+<li>Zweite &amp; Dritte Normalform (2. &amp; 3. NF): Zerschlagen Sie die fehleranfällige Gesamttabelle in drei separate, sinnvolle Tabellen.</li>
+<li>Legen Sie für jede Tabelle die passenden Attribute fest.</li>
+<li>Bestimmen Sie jeweils den Primärschlüssel (PK).</li>
+<li>Verknüpfen Sie die Tabellen mithilfe von Fremdschlüsseln (FK) logisch miteinander.</li>
+</ol>
+<hr />
+<h3 id="informationsmaterial-m220-fehlerbeschreibungen-in-relationalen-datenbanken">Informationsmaterial M|2.2.0: Fehlerbeschreibungen in relationalen Datenbanken</h3>
+<p>Wandern Daten unstrukturiert oder doppelt in eine Datenbank, führt das schnell zu Fehlern. Man spricht hierbei von <strong>Redundanzen</strong>, <strong>inkonsistenten Daten</strong> und <strong>Anomalien</strong>. Eine saubere Datenbankstruktur verhindert solche Probleme, bevor sie im Betriebsalltag den Ablauf stören.</p>
+<p><strong>1. Redundanz (Mehrfacherspeicherung)</strong></p>
+<p>Unter Redundanz versteht man das <strong>mehrfache Speichern derselben Information</strong> an unterschiedlichen Stellen. Das verschwendet nicht nur Speicherplatz, sondern ist vor allem die Hauptursache für fehlerhafte Daten im System.</p>
+<ul>
+<li><em>Beispiel:</em> Die Adresse eines Kunden steht sowohl in der Kundenliste als auch in jeder einzelnen Bestellung, die er jemals aufgegeben hat.</li>
+</ul>
+<p><strong>2. Inkonsistente Daten (Widersprüchlichkeit)</strong></p>
+<p>Inkonsistenz beschreibt einen Zustand, in dem <strong>Daten widersprüchlich, veraltet oder unvollständig</strong> sind. Daten sind konsistent, wenn sie sachlich richtig und eindeutig sind. Entstehen durch doppelterfasste Daten unterschiedliche Werte für denselben Sachverhalt, ist die Datenhaltung inkonsistent – das System verliert seine Verlässlichkeit.</p>
+<ul>
+<li><em>Beispiel:</em> Im System existiert Kunde Klaus Müller einmal mit dem Wohnort <code>"Hannover"</code> und an anderer Stelle mit dem Wohnort <code>"Wolfsburg"</code>. Welche Angabe für den Paketversand korrekt ist, lässt sich nicht mehr zweifelsfrei feststellen.</li>
+</ul>
+<p><strong>3. Änderungsanomalie (Update-Anomalie)</strong></p>
+<p>Eine Änderungsanomalie tritt auf, wenn redundante Daten geändert werden müssen, dies aber <strong>nicht an allen Stellen gleichzeitig</strong> geschieht. Die Daten werden dadurch direkt <strong>inkonsistent</strong>.</p>
+<ul>
+<li><em>Beispiel:</em> Ein Lieferant erhöht den Preis für das Material <code>"PLA Schwarz"</code>. Der neue Preis wird in der Tabelle für einen aktuellen Auftrag angepasst, bei älteren Aufträgen in derselben Tabelle bleibt der alte Preis stehen. Es ist nicht mehr klar, welcher Preis aktuell gilt.</li>
+</ul>
+<p><strong>4. Einfügeanomalie (Insert-Anomalie)</strong></p>
+<p>Eine Einfügeanomalie liegt vor, wenn ein neuer Datensatz <strong>nicht eingegeben werden kann</strong>, weil benötigte Pflichtdaten aus anderen Bereichen noch fehlen.</p>
+<ul>
+<li><em>Beispiel:</em> Ein Neukunde möchte sich im System registrieren. Da die unsaubere Tabelle aber zwingend eine <code>Auftrags_ID</code> als Hauptmerkmal verlangt, kann der Kunde erst angelegt werden, sobald er auch tatsächlich etwas kostenpflichtig bestellt.</li>
+</ul>
+<p><strong>5. Löschanomalie (Delete-Anomalie)</strong></p>
+<p>Eine Löschanomalie entsteht, wenn durch das Löschen eines Datensatzes <strong>unbeabsichtigt wichtige Zusatzinformationen verloren gehen</strong>, die eigentlich noch benötigt werden.</p>
+<ul>
+<li><em>Beispiel:</em> Ein Kunde storniert seinen einzigen Auftrag. Wird die entsprechende Auftragszeile aus der Tabelle gelöscht, verschwinden gleichzeitig auch die komplette Kundenadresse und die Stammdaten des bestellten Oldtimer-Bauteils aus dem System.</li>
+</ul>
+<p><strong>Beispiel aus der Form &amp; Fokus Manufaktur</strong></p>
+<p>Fehleranfällige Tabelle <strong><code>Auftragsübersicht</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Auftrags_ID (PK)</th>
+<th>Kunde_Name</th>
+<th>Kunde_Ort</th>
+<th>Material</th>
+<th>Material_Preis_Pro_KG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1001</strong></td>
+<td>Müller, Klaus</td>
+<td>Hannover</td>
+<td>PLA Schwarz</td>
+<td><strong>25,00 €</strong></td>
+</tr>
+<tr>
+<td><strong>1002</strong></td>
+<td>Schmidt, Sarah</td>
+<td>Hamburg</td>
+<td>ABS Grau</td>
+<td>35,00 €</td>
+</tr>
+<tr>
+<td><strong>1003</strong></td>
+<td>Müller, Klaus</td>
+<td>Hannover</td>
+<td>PLA Schwarz</td>
+<td><strong>28,00 €</strong></td>
+</tr>
+</tbody>
+</table>
+<p>In dieser unsauberen Struktur tritt eine <strong>Änderungsanomalie</strong> offen zutage: Bei Auftrag <code>1003</code> wurde der Preis für <code>"PLA Schwarz"</code> auf 28,00 € geändert, bei Auftrag <code>1001</code> steht jedoch noch der alte Preis von 25,00 €. Die Datenbank enthält an dieser Stelle <strong>inkonsistente Daten</strong>, da für denselben Artikel zwei unterschiedliche Preise existieren. Zudem liegt eine <strong>Redundanz</strong> vor, da Name und Ort von Herrn Müller doppelt gespeichert sind.</p>
+<hr />
+<h3 id="informationsmaterial-m221-normalisierung-von-datenbanken">Informationsmaterial M|2.2.1: Normalisierung von Datenbanken</h3>
+<p>Die <strong>Normalisierung</strong> ist ein schrittweises Verfahren zur Gestaltung von Datenbanken. Ziel ist es, <strong>Redundanzen</strong> abzubauen, <strong>Anomalien</strong> zu vermeiden und <strong>inkonsistente Daten</strong> im System zu verhindern. Dabei wird eine unstrukturierte Tabelle schrittweise in mehrere, sauber miteinander verknüpfte Tabellen aufgeteilt.</p>
+<p><strong>Unnormalisierte Ausgangslage (0. Normalform)</strong></p>
+<p>Eine Tabelle befindet sich in der <strong>0. Normalform (0. NF)</strong>, wenn Daten unstrukturiert erfasst sind, Datenfelder mehrere Werte gleichzeitig enthalten oder Wiederholungsgruppen existieren. Es existiert noch kein eindeutiger Primärschlüssel.</p>
+<p>Tabelle <strong><code>Auftrag_Unstrukturiert</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Kunde</th>
+<th>Ort</th>
+<th>Bauteile</th>
+<th>Material</th>
+<th>Material_Preis_Pro_KG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Klaus Müller</td>
+<td>Hannover</td>
+<td>Schalterknopf T3, Abdeckung P911</td>
+<td>PLA Schwarz</td>
+<td>25,00 €</td>
+</tr>
+<tr>
+<td>Sarah Schmidt</td>
+<td>Hamburg</td>
+<td>Zierleiste MB W123</td>
+<td>ABS Grau</td>
+<td>35,00 €</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1. Erste Normalform (1. NF) – Atomarität</strong></p>
+<blockquote>
+<p><strong>Merksatz 1. NF:</strong>
+Jedes Feld enthält nur einen einzigen Wert (atomar) und es gibt keine Wiederholungsgruppen. Erst hier wird ein eindeutiger Primärschlüssel definiert.</p>
+</blockquote>
+<p>Eine Tabelle ist in der <strong>Ersten Normalform</strong>, wenn alle Attributwerte <strong>atomar</strong> (nicht weiter teilbar) sind. Mehrfachnennungen in einer Zelle (wie Kommalisten) werden aufgelöst. Zusammengesetzte Datenfelder (wie vollständige Namen) werden in einzelne Spalten zerlegt.</p>
+<p><strong>Schritte zur 1. NF:</strong></p>
+<ol>
+<li>Spalte <code>Kunde</code> in <code>Vorname</code> und <code>Nachname</code> aufteilen.</li>
+<li>Mehrfachnennungen in der Spalte <code>Bauteile</code> auf einzelne Datensätze aufteilen.</li>
+<li><strong>Eindeutigen Primärschlüssel festlegen:</strong> Da die <code>Auftrags_ID</code> durch die Aufteilung nun mehrfach vorkommt (z. B. <code>1001</code>), reicht sie alleine nicht mehr als Schlüssel aus. Es wird ein <strong>zusammengesetzter Primärschlüssel</strong> aus (<code>Auftrags_ID</code> + <code>Bauteil_ID</code>) gebildet.</li>
+</ol>
+<p>Tabelle <strong><code>Auftrag_1NF</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Auftrags_ID (PK)</th>
+<th>Bauteil_ID (PK)</th>
+<th>Vorname</th>
+<th>Nachname</th>
+<th>Ort</th>
+<th>Bauteil_Bezeichnung</th>
+<th>Material</th>
+<th>Material_Preis_Pro_KG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1001</strong></td>
+<td><strong>B-01</strong></td>
+<td>Klaus</td>
+<td>Müller</td>
+<td>Hannover</td>
+<td>Schalterknopf T3</td>
+<td>PLA Schwarz</td>
+<td>25,00 €</td>
+</tr>
+<tr>
+<td><strong>1001</strong></td>
+<td><strong>B-02</strong></td>
+<td>Klaus</td>
+<td>Müller</td>
+<td>Hannover</td>
+<td>Abdeckung P911</td>
+<td>PLA Schwarz</td>
+<td>25,00 €</td>
+</tr>
+<tr>
+<td><strong>1002</strong></td>
+<td><strong>B-03</strong></td>
+<td>Sarah</td>
+<td>Schmidt</td>
+<td>Hamburg</td>
+<td>Zierleiste MB W123</td>
+<td>ABS Grau</td>
+<td>35,00 €</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Zweite Normalform (2. NF) – Vollständige funktionale Abhängigkeit</strong></p>
+<blockquote>
+<p><strong>Merksatz 2. NF:</strong>
+Die Tabelle ist in der 1. NF und jedes Nicht-Schlüssel-Attribut hängt vollständig vom NEBENEINANDER aller Teile des Primärschlüssels ab.</p>
+</blockquote>
+<p>Die <strong>Zweite Normalform</strong> betrifft Tabellen mit einem <strong>zusammengesetzten Primärschlüssel</strong>. Jedes Attribut, das nur von einem <em>Teil</em> des Schlüssels abhängt, wird in eine eigene Tabelle ausgelagert.</p>
+<p><strong>Analyse unseres Beispiels:</strong></p>
+<ul>
+<li><code>Vorname</code>, <code>Nachname</code> und <code>Ort</code> hängen nur von der <code>Auftrags_ID</code> ab (nicht von der <code>Bauteil_ID</code>).</li>
+<li><code>Bauteil_Bezeichnung</code>, <code>Material</code> und <code>Material_Preis_Pro_KG</code> hängen von der <code>Bauteil_ID</code> ab.</li>
+</ul>
+<p><strong>Schritte zur 2. NF:</strong> Aufteilung in zwei getrennte Tabellen.</p>
+<p>Tabelle <strong><code>Auftrag</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Auftrags_ID (PK)</th>
+<th>Vorname</th>
+<th>Nachname</th>
+<th>Ort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1001</strong></td>
+<td>Klaus</td>
+<td>Müller</td>
+<td>Hannover</td>
+</tr>
+<tr>
+<td><strong>1002</strong></td>
+<td>Sarah</td>
+<td>Schmidt</td>
+<td>Hamburg</td>
+</tr>
+</tbody>
+</table>
+<p>Tabelle <strong><code>Bauteil</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Bauteil_ID (PK)</th>
+<th>Auftrags_ID (FK)</th>
+<th>Bauteil_Bezeichnung</th>
+<th>Material</th>
+<th>Material_Preis_Pro_KG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>B-01</strong></td>
+<td>1001</td>
+<td>Schalterknopf T3</td>
+<td>PLA Schwarz</td>
+<td>25,00 €</td>
+</tr>
+<tr>
+<td><strong>B-02</strong></td>
+<td>1001</td>
+<td>Abdeckung P911</td>
+<td>PLA Schwarz</td>
+<td>25,00 €</td>
+</tr>
+<tr>
+<td><strong>B-03</strong></td>
+<td>1002</td>
+<td>Zierleiste MB W123</td>
+<td>ABS Grau</td>
+<td>35,00 €</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. Dritte Normalform (3. NF) – Keine transitiven Abhängigkeiten</strong></p>
+<blockquote>
+<p><strong>Merksatz 3. NF:</strong>
+Die Tabelle ist in der 2. NF und kein Nicht-Schlüssel-Attribut hängt von einem ANDEREN Nicht-Schlüssel-Attribut ab.</p>
+</blockquote>
+<p>Eine Tabelle ist in der <strong>Dritten Normalform</strong>, wenn keine <strong>transitiv</strong> (indirekt) abhängigen Attribute enthalten sind. Wenn Attribut A von Attribut B abhängt und Attribut B vom Primärschlüssel abhängt, muss Attribut B samt seinen Abhängigkeiten in eine neue Tabelle ausgelagert werden.</p>
+<p><strong>Analyse unseres Beispiels:</strong></p>
+<ul>
+<li>In der Tabelle <code>Bauteil</code> hängt <code>Material_Preis_Pro_KG</code> nicht direkt von der <code>Bauteil_ID</code> ab, sondern vom <code>Material</code> (<code>PLA Schwarz</code> kostet immer 25,00 €). Ändert sich das Material, ändert sich der Preis.</li>
+</ul>
+<p><strong>Schritte zur 3. NF:</strong> Auslagern des Materials in eine eigene Material-Tabelle.</p>
+<p><strong>Das finale Datenmodell in der 3. Normalform (3. NF)</strong></p>
+<p>Tabelle <strong><code>Auftrag</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Auftrags_ID (PK)</th>
+<th>Vorname</th>
+<th>Nachname</th>
+<th>Ort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1001</strong></td>
+<td>Klaus</td>
+<td>Müller</td>
+<td>Hannover</td>
+</tr>
+<tr>
+<td><strong>1002</strong></td>
+<td>Sarah</td>
+<td>Schmidt</td>
+<td>Hamburg</td>
+</tr>
+</tbody>
+</table>
+<p>Tabelle <strong><code>Bauteil</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Bauteil_ID (PK)</th>
+<th>Auftrags_ID (FK)</th>
+<th>Material_ID (FK)</th>
+<th>Bauteil_Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>B-01</strong></td>
+<td>1001</td>
+<td><strong>M-01</strong></td>
+<td>Schalterknopf T3</td>
+</tr>
+<tr>
+<td><strong>B-02</strong></td>
+<td>1001</td>
+<td><strong>M-01</strong></td>
+<td>Abdeckung P911</td>
+</tr>
+<tr>
+<td><strong>B-03</strong></td>
+<td>1002</td>
+<td><strong>M-02</strong></td>
+<td>Zierleiste MB W123</td>
+</tr>
+</tbody>
+</table>
+<p>Tabelle <strong><code>Material</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Material_ID (PK)</th>
+<th>Material_Bezeichnung</th>
+<th>Preis_Pro_KG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M-01</strong></td>
+<td>PLA Schwarz</td>
+<td>25,00 €</td>
+</tr>
+<tr>
+<td><strong>M-02</strong></td>
+<td>ABS Grau</td>
+<td>35,00 €</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ergebnis:</strong> Die Daten sind nun frei von Redundanzen. Ändert sich beispielsweise der Preis für <code>PLA Schwarz</code>, muss dieser Wert in der Tabelle <strong><code>Material</code></strong> exakt an <em>einer einzigen Stelle</em> angepasst werden. <strong>Änderungs-, Einfüge- und Löschanomalien sowie inkonsistente Daten sind damit vollständig ausgeschlossen.</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Lizenz</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Der KIT LF7 DB Kurs</span> von <a xmlns:cc="http://creativecommons.org/ns#" href="https://herr-nm.github.io/MMBbS_KIT_LF07DB/" property="cc:attributionName" rel="cc:attributionURL">André Neumann</a> ist lizenziert unter einer <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>. Fragen, Hinweise etc. an neumann@mmbbs.de.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

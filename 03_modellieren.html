@@ -1,0 +1,2529 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://herr-nm.github.io/MMBbS_KIT_LF07DB/03_modellieren.html">
+      
+      
+        <link rel="prev" href="02_grundlagen.html">
+      
+      
+        <link rel="next" href="04_anlegen.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="bilder/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Kapitel 03 - Datenbanken modellieren - KIT Lernfeld 7 (Datenbanken)</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kapitel-3-datenbanken-modellieren" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="index.html" title="KIT Lernfeld 7 (Datenbanken)" class="md-header__button md-logo" aria-label="KIT Lernfeld 7 (Datenbanken)" data-md-component="logo">
+      
+  <img src="bilder/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            KIT Lernfeld 7 (Datenbanken)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kapitel 03 - Datenbanken modellieren
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/herr-nm/MMBbS_KIT_LF07DB/" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="KIT Lernfeld 7 (Datenbanken)" class="md-nav__button md-logo" aria-label="KIT Lernfeld 7 (Datenbanken)" data-md-component="logo">
+      
+  <img src="bilder/logo.png" alt="logo">
+
+    </a>
+    KIT Lernfeld 7 (Datenbanken)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/herr-nm/MMBbS_KIT_LF07DB/" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Informationen zur Kurslizenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="00_organisatorisches.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 00 - Organisatorisches
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01_modellunternehmen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 01 - Vorstellung des Modellunternehmens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02_grundlagen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 02 - Grundlagen der Datenbanken
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 03 - Datenbanken modellieren
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="03_modellieren.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 03 - Datenbanken modellieren
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#handlungssituation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handlungssituation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-30-er-diagramme-beschreiben" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 3.0: ER-Diagramme beschreiben
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 3.0: ER-Diagramme beschreiben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a30-elemente-des-er-diagramms-beschreiben" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.0: Elemente des ER-Diagramms beschreiben
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.0: Elemente des ER-Diagramms beschreiben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m300-das-entity-relationship-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.0.0: Das Entity-Relationship-Diagram
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Material M|3.0.0: Das Entity-Relationship-Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grundlagen-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grundlagen &amp; Software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beschreibung-des-erm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beschreibung des ERM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beschreibung-der-elemente-eines-erm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beschreibung der Elemente eines ERM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beschreibung der Elemente eines ERM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entitat-entity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entität (Entity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribut-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribut (Attribute)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primarschlussel-attribut-primary-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primärschlüssel-Attribut (Primary Key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fremdschlussel-attribut-foreign-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fremdschlüssel-Attribut (Foreign Key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beziehung-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beziehung (Relationship)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kardinalitaten-cardinalities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kardinalitäten (Cardinalities)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m301-modellierung-von-datenbanken-erstellung-eines-erm-youtube-herr-nm-25-min-videotutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.0.1: Modellierung von Datenbanken - Erstellung eines ERM (YouTube Herr-NM - 25 Min. Videotutorial)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a31-beziehungstypen-unterscheiden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.1: Beziehungstypen unterscheiden
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.1: Beziehungstypen unterscheiden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m310-auflosen-der-nm-beziehung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.1.0: Auflösen der N:M-Beziehung
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Material M|3.1.0: Auflösen der N:M-Beziehung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nm-beziehungen-im-erm-auflosung-und-umsetzung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        N:M-Beziehungen im ERM – Auflösung und Umsetzung
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warum-kann-man-nm-beziehungen-nicht-direkt-umsetzen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warum kann man N:M-Beziehungen nicht direkt umsetzen?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-projekt-werkzeug-in-der-schulwerkstatt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beispiel: Projekt &amp; Werkzeug in der Schulwerkstatt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#losung-einfuhrung-einer-beziehungsentitat-benoetigt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lösung: Einführung einer Beziehungsentität benoetigt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-beziehungsentitat-benoetigt-enthalt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Die Beziehungsentität benoetigt enthält:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warum-ist-die-beziehungsentitat-notwendig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warum ist die Beziehungsentität notwendig?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kunstlicher-primarschlussel-vs-zusammengesetzter-primarschlussel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Künstlicher Primärschlüssel vs. Zusammengesetzter Primärschlüssel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-31-er-diagramme-vervollstandigen-und-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 3.1: ER-Diagramme vervollständigen und erstellen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 3.1: ER-Diagramme vervollständigen und erstellen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a32-vervollstandigung-der-kunden-und-auftragsverwaltung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.2: Vervollständigung der Kunden- und Auftragsverwaltung
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.2: Vervollständigung der Kunden- und Auftragsverwaltung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a33-erstellung-eines-er-diagramms-fur-die-material-und-lagerhaltung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.3: Erstellung eines ER-Diagramms für die Material- und Lagerhaltung
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.3: Erstellung eines ER-Diagramms für die Material- und Lagerhaltung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a34-verknupfung-der-beiden-datenmodelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.4: Verknüpfung der beiden Datenmodelle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.4: Verknüpfung der beiden Datenmodelle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-32-er-diagramm-in-das-relationale-datenbankschema-uberfuhren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 3.2: ER-Diagramm in das Relationale Datenbankschema überführen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 3.2: ER-Diagramm in das Relationale Datenbankschema überführen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a35-relationales-datenbankschema-vom-erm-abgrenzen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.5: Relationales Datenbankschema vom ERM abgrenzen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.5: Relationales Datenbankschema vom ERM abgrenzen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m350-das-relationale-datenbankschema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.5.0: Das relationale Datenbankschema
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Material M|3.5.0: Das relationale Datenbankschema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relationales-datenbankmodell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relationales Datenbankmodell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eigenschaften-vom-relationalen-datenbankmodell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eigenschaften vom Relationalen Datenbankmodell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-fur-ein-relationales-datenbankschema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beispiel für ein Relationales Datenbankschema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hinweise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hinweise:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m351-modellierung-von-datenbanken-erstellung-eines-relationalen-datenbankschemas-youtube-herr-nm-16-min-videotutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.5.1: Modellierung von Datenbanken - Erstellung eines relationalen Datenbankschemas (YouTube Herr-NM - 16 Min. Videotutorial)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a36-erstellung-eines-relationalen-datenbankschemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.6: Erstellung eines Relationalen Datenbankschemas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.6: Erstellung eines Relationalen Datenbankschemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m360-mysql-datentypen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.6.0: MySQL-Datentypen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handlungsergebnis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handlungsergebnis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handlungsergebnis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a37-aufbereitung-der-datenhaltung-fur-das-kundengesprach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.7: Aufbereitung der Datenhaltung für das Kundengespräch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04_anlegen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 04 - Datenbanken anlegen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05_abfragen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 05 - Datenbanken abfragen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06_aendern.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kapitel 06 - Datenbanken und ihre Inhalte ändern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#handlungssituation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handlungssituation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-30-er-diagramme-beschreiben" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 3.0: ER-Diagramme beschreiben
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 3.0: ER-Diagramme beschreiben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a30-elemente-des-er-diagramms-beschreiben" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.0: Elemente des ER-Diagramms beschreiben
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.0: Elemente des ER-Diagramms beschreiben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m300-das-entity-relationship-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.0.0: Das Entity-Relationship-Diagram
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Material M|3.0.0: Das Entity-Relationship-Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grundlagen-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grundlagen &amp; Software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beschreibung-des-erm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beschreibung des ERM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beschreibung-der-elemente-eines-erm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beschreibung der Elemente eines ERM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beschreibung der Elemente eines ERM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entitat-entity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entität (Entity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribut-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribut (Attribute)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primarschlussel-attribut-primary-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primärschlüssel-Attribut (Primary Key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fremdschlussel-attribut-foreign-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fremdschlüssel-Attribut (Foreign Key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beziehung-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beziehung (Relationship)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kardinalitaten-cardinalities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kardinalitäten (Cardinalities)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m301-modellierung-von-datenbanken-erstellung-eines-erm-youtube-herr-nm-25-min-videotutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.0.1: Modellierung von Datenbanken - Erstellung eines ERM (YouTube Herr-NM - 25 Min. Videotutorial)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a31-beziehungstypen-unterscheiden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.1: Beziehungstypen unterscheiden
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.1: Beziehungstypen unterscheiden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m310-auflosen-der-nm-beziehung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.1.0: Auflösen der N:M-Beziehung
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Material M|3.1.0: Auflösen der N:M-Beziehung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nm-beziehungen-im-erm-auflosung-und-umsetzung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        N:M-Beziehungen im ERM – Auflösung und Umsetzung
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warum-kann-man-nm-beziehungen-nicht-direkt-umsetzen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warum kann man N:M-Beziehungen nicht direkt umsetzen?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-projekt-werkzeug-in-der-schulwerkstatt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beispiel: Projekt &amp; Werkzeug in der Schulwerkstatt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#losung-einfuhrung-einer-beziehungsentitat-benoetigt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lösung: Einführung einer Beziehungsentität benoetigt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-beziehungsentitat-benoetigt-enthalt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Die Beziehungsentität benoetigt enthält:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warum-ist-die-beziehungsentitat-notwendig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warum ist die Beziehungsentität notwendig?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kunstlicher-primarschlussel-vs-zusammengesetzter-primarschlussel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Künstlicher Primärschlüssel vs. Zusammengesetzter Primärschlüssel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-31-er-diagramme-vervollstandigen-und-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 3.1: ER-Diagramme vervollständigen und erstellen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 3.1: ER-Diagramme vervollständigen und erstellen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a32-vervollstandigung-der-kunden-und-auftragsverwaltung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.2: Vervollständigung der Kunden- und Auftragsverwaltung
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.2: Vervollständigung der Kunden- und Auftragsverwaltung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a33-erstellung-eines-er-diagramms-fur-die-material-und-lagerhaltung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.3: Erstellung eines ER-Diagramms für die Material- und Lagerhaltung
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.3: Erstellung eines ER-Diagramms für die Material- und Lagerhaltung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a34-verknupfung-der-beiden-datenmodelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.4: Verknüpfung der beiden Datenmodelle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.4: Verknüpfung der beiden Datenmodelle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kompetenz-32-er-diagramm-in-das-relationale-datenbankschema-uberfuhren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kompetenz 3.2: ER-Diagramm in das Relationale Datenbankschema überführen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kompetenz 3.2: ER-Diagramm in das Relationale Datenbankschema überführen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a35-relationales-datenbankschema-vom-erm-abgrenzen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.5: Relationales Datenbankschema vom ERM abgrenzen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.5: Relationales Datenbankschema vom ERM abgrenzen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m350-das-relationale-datenbankschema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.5.0: Das relationale Datenbankschema
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Material M|3.5.0: Das relationale Datenbankschema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relationales-datenbankmodell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relationales Datenbankmodell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eigenschaften-vom-relationalen-datenbankmodell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eigenschaften vom Relationalen Datenbankmodell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-fur-ein-relationales-datenbankschema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beispiel für ein Relationales Datenbankschema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hinweise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hinweise:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m351-modellierung-von-datenbanken-erstellung-eines-relationalen-datenbankschemas-youtube-herr-nm-16-min-videotutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.5.1: Modellierung von Datenbanken - Erstellung eines relationalen Datenbankschemas (YouTube Herr-NM - 16 Min. Videotutorial)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a36-erstellung-eines-relationalen-datenbankschemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.6: Erstellung eines Relationalen Datenbankschemas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbeitsauftrag A|3.6: Erstellung eines Relationalen Datenbankschemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufgabe 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-m360-mysql-datentypen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material M|3.6.0: MySQL-Datentypen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handlungsergebnis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handlungsergebnis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handlungsergebnis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arbeitsauftrag-a37-aufbereitung-der-datenhaltung-fur-das-kundengesprach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbeitsauftrag A|3.7: Aufbereitung der Datenhaltung für das Kundengespräch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="kapitel-3-datenbanken-modellieren">Kapitel 3: Datenbanken modellieren</h1>
+<p><img alt="Kapitelbild" src="bilder/03_kapitelbild.png" /></p>
+<p>In diesem Kapitel werden Sie ...</p>
+<ul>
+<li>... Entity-Relationship-Diagramme beschreiben, vervollständigen und erstellen.</li>
+<li>...  ER-Diagramme in das Relationale Datenbankschema überführen.</li>
+<li>... alle Schritte durchführen, die notwendig sind, um anschließend eine Datenbank anzulegen.</li>
+</ul>
+<hr />
+<h2 id="handlungssituation">Handlungssituation</h2>
+<p>Die Form &amp; Fokus Manufaktur GmbH verzeichnet eine stark steigende Nachfrage nach individuell 3D-gedruckten Ersatzteilen und gelaserten Dekoartikeln. Bisher führt das 5-köpfige Team Kundenaufträge und den Materialbestand in unübersichtlichen Tabellendokumenten. Dies führt zu Engpässen beim Filamentlager und verlorenen Auftragsdetails.</p>
+<p>Als IT-Nachwuchskräfte erhalten Sie den Auftrag, eine strukturierte, relationale Datenbanklösung zu konzipieren, die zunächst die Kunden- und Auftragsverwaltung sowie die Material- und Lagerhaltung integriert.</p>
+<figure style="max-width: 100%; margin: 1em 0; text-align: center;">
+ <img src="bilder/03_handlungssituation.png" alt="Papier-Chaos" style="width: 100%; height: auto; border-radius: 6px;"> <figcaption style="font-size: 0.85em; color: #555555; margin-top: 6px; font-style: italic;"> Abb.: Chaos in der Form & Fokus Manufaktur GmbH <span style="font-style: normal; opacity: 0.8;">(🤖 KI-generiert)</span></figcaption></figure>
+
+<hr />
+<h2 id="kompetenz-30-er-diagramme-beschreiben">Kompetenz 3.0: ER-Diagramme beschreiben</h2>
+<p>Die Geschäftsführung hat von einem befreundeten externen Berater einen ersten Skizzenentwurf für die Kunden- und Auftragsverwaltung erhalten. Sie sollen sich einen Überblick verschaffen.</p>
+<figure style="max-width: 100%; margin: 1em 0; text-align: center;"> 
+     <img src="bilder/03_erd.png" alt="Entwurf eines Entity-Relationship-Diagramms" style="width: 100%; height: auto; border-radius: 6px;"> 
+     <figcaption style="font-size: 0.85em; color: #555555; margin-top: 6px; font-style: italic;"> 
+         Abb.: Entwurf eines Entity-Relationship-Diagramms <span style="font-style: normal; opacity: 0.8;">(🤖 KI-generiert)</span> 
+     </figcaption> 
+ </figure>
+
+<hr />
+<h3 id="arbeitsauftrag-a30-elemente-des-er-diagramms-beschreiben">Arbeitsauftrag A|3.0: Elemente des ER-Diagramms beschreiben</h3>
+<p>Ihnen liegt das folgende ER-Diagramm vor:</p>
+<p><img alt="ERM Kunde Auftrag" src="bilder/03_form_fokus_kunden_auftrag_material.png" /></p>
+<h4 id="aufgabe-1">Aufgabe 1</h4>
+<p>Beschreiben Sie anhand des Ausschnitts (Kunde → erteilt → Auftrag) die Grundelemente eines ER-Diagramms:</p>
+<ul>
+<li>Entität</li>
+<li>Attribut</li>
+<li>Beziehung</li>
+<li>Primärschlüssel</li>
+<li>Fremdschlüssel</li>
+</ul>
+<h4 id="aufgabe-2">Aufgabe 2</h4>
+<p>Erläutern Sie dem Team der Manufaktur in eigenen Worten, warum Attribute wie kundePK oder auftragPK als Primärschlüssel gewählt werden müssen.</p>
+<hr />
+<h3 id="material-m300-das-entity-relationship-diagram">Material M|3.0.0: Das Entity-Relationship-Diagram</h3>
+<h4 id="grundlagen-software">Grundlagen &amp; Software</h4>
+<p>Das Entity-Relationship-Modell, kurz <strong>ERM</strong>, ist ein einfaches Modell für den Entwurf von Datenbanken. Die deutsche Übersetzung des Begriffes lautet in etwa: <em>Gegenstand-Beziehung-Modell</em>. Es wird auch Entity-Relationship-Diagramm (ERD) genannt.</p>
+<p>Hier ein Beispiel, das ein <strong>System zur Verwaltung von Schulprojekten</strong> abbildet:</p>
+<p>Ein erster Entwurf kann entweder handschriftlich oder mit einem Computerprogramm erfolgen. Einige Softwarevorschläge sind bspw.:</p>
+<ul>
+<li><strong>yEd - Graph Editor</strong> - yWorks (für Einsteiger &amp; Fortgeschrittene; erfüllt die im Unterricht verwendete Notation voll)</li>
+<li><strong>MySQL Workbench</strong> (tendenziell eher für Fortgeschrittene; erfüllt die im Unterricht verwendete Notation teilweise)</li>
+</ul>
+<blockquote>
+<p><strong>Hinweis:</strong> Sie müssen hinsichtlich der IHK-Prüfungen und Klausuren unbedingt in der Lage sein, ER-Diagramme auch auf Papier zu zeichnen. Das mag zwar etwas komisch klingen, aber der Schwierigkeitsgrad ist aufgrund mangelnder Verschiebemöglichkeiten bedeutend höher und sollte zwingend ebenfalls geübt werden.</p>
+</blockquote>
+<p>Bei dem Aufbau eines ER-Modells bzw. des daraus resultierenden ER-Diagrammes sind unterschiedliche Darstellungsformen in Gebrauch. Die bekannteste Form stellt die sogenannte <strong>Chen-Notation</strong> von <em>Peter Chen</em> dar. Chen gilt als Entwickler der ER-Diagramme. Die grundlegenden Elemente werden im Folgenden erklärt.</p>
+<h4 id="beschreibung-des-erm">Beschreibung des ERM</h4>
+<p><img alt="ERD Projekt" src="bilder/03_projekt.png" /></p>
+<p>In diesem Entity-Relationship-Modell (ERM) wird ein vereinfachtes System zur <strong>Organisation von Schülerprojekten an einer Schule</strong> dargestellt. Es umfasst vier zentrale Entitäten: <code>schueler</code>, <code>projekt</code>, <code>raum</code> und <code>werkzeug</code>. Die Beziehungen zwischen diesen Entitäten sind klar definiert und durch Primär- und Fremdschlüssel abgebildet.</p>
+<p>Die Entität <strong><code>schueler</code></strong> besitzt das Primärattribut <code>schuelerPK</code> und steht in einer 1:N-Beziehung mit der Entität <strong><code>projekt</code></strong>, dargestellt durch die Beziehung <strong><code>reicht_ein</code></strong>. Das bedeutet, dass ein Schüler mehrere Projekte einreichen bzw. leiten kann, ein Projekt jedoch genau einem verantwortlichen Schüler zugeordnet ist. Die Beziehung wird technisch durch den Fremdschlüssel <code>schuelerFK</code> in der Entität <code>projekt</code> realisiert.</p>
+<p>Die Entität <strong><code>projekt</code></strong> stellt das zentrale Bindeglied des Modells dar. Sie besitzt ein Primärattribut <code>projektPK</code> und ist mit mehreren weiteren Entitäten verknüpft. Jeder Projektaufbau findet in genau einem Raum statt, was durch die $N:1$-Beziehung <strong><code>nutzt</code></strong> zur Entität <strong><code>raum</code></strong> dargestellt wird. In der Entität <code>projekt</code> ist dafür der Fremdschlüssel <code>raumFK</code> hinterlegt. Die Entität <code>raum</code> selbst verfügt über das Primärattribut <code>raumPK</code>.</p>
+<p>Weiterhin steht die Entität <strong><code>projekt</code></strong> in einer N:M-Beziehung zur Entität <strong><code>werkzeug</code></strong>, modelliert über die Beziehung <strong><code>benoetigt</code></strong>. Dies bedeutet, dass ein Projekt mehrere Werkzeuge/Geräte verwenden kann und gleichzeitig ein Werkzeug in mehreren Projekten zum Einsatz kommen kann. Diese Beziehung wird über eine eigene Beziehungstabelle <strong><code>benoetigt</code></strong> abgebildet, die das Primärattribut <code>benoetigtPK</code> sowie die beiden Fremdschlüssel <code>projektFK</code> und <code>werkzeugFK</code> enthält. Die Entität <strong><code>werkzeug</code></strong> besitzt das Primärattribut <code>werkzeugPK</code>.</p>
+<p>Durch diese Modellierung lassen sich realistische Abläufe im Schulalltag abbilden: Ein Schüler kann beliebig viele Projekte anmelden. Jedes dieser Projekte ist fest einem bestimmten Raum zugewiesen und wird unter Verwendung verschiedener Werkzeuge ausgeführt. Dabei können Werkzeuge mehrfach und in unterschiedlichen Projekten verwendet werden.</p>
+<p>Das ERM enthält neben den Entitäten und Beziehungen inkl. ihrer Kardinalitäten auch die Schlüsselattribute (PK &amp; FK). Die einfachen Attribute werden oftmals zugunsten der Übersicht des ERM im ersten Schritt weggelassen.</p>
+<h4 id="beschreibung-der-elemente-eines-erm">Beschreibung der Elemente eines ERM</h4>
+<h5 id="entitat-entity">Entität (Entity)</h5>
+<ul>
+<li>Als Entität wird ein eindeutig bestimmbares Objekt bezeichnet. Über dieses Objekt sollen Informationen (Attribute) gespeichert oder verarbeitet werden.</li>
+<li>Eine Entität wird im ER-Diagramm als <strong>Rechteck</strong> dargestellt und grundsätzlich im <strong>Singular</strong> beschrieben.</li>
+<li>Im Beispiel sind <code>schueler</code>, <code>projekt</code>, <code>werkzeug</code> und <code>raum</code> die Entitäten.</li>
+</ul>
+<h5 id="attribut-attribute">Attribut (Attribute)</h5>
+<ul>
+<li>Ein Attribut ist ein Merkmal bzw. Kennzeichen eines Objektes, also einer Entität. Jede Entität kann beliebig viele Attribute besitzen. Das Wort Attribut lässt sich auch als Eigenschaft bezeichnen.</li>
+<li>Ein Attribut wird im ER-Diagramm als <strong>Ellipse</strong> dargestellt. Die Attribute werden mit ungerichteten Kanten zu den Entitäten verbunden.</li>
+<li>Während z.B. das Attribut <code>bezeichnung</code> eine Eigenschaft der Entität <code>werkzeug</code> darstellt, sind <em>"Akkuschrauber"</em> oder <em>"Lötkolben"</em> konkrete Attributwerte, die in dem Attribut gespeichert sein können. In ER-Diagrammen werden stets nur <strong>Attribute</strong> und keine Attributwerte benutzt.</li>
+<li>Im Beispiel sind:</li>
+<li><code>vorname</code>, <code>nachname</code>, <code>e-mail</code>, <code>klasse</code> (alle in <code>schueler</code>)</li>
+<li><code>titel</code>, <code>startdatum</code>, <code>status</code> (in <code>projekt</code>)</li>
+<li><code>gebaeude</code>, <code>raumnummer</code>, <code>kapazitaet</code> (alle in <code>raum</code>)</li>
+<li><code>einsatzdauer</code> (in <code>benoetigt</code>)</li>
+<li><code>bezeichnung</code>, <code>inventarnummer</code>, <code>zustand</code> (in <code>werkzeug</code>)
+die einfachen Attribute.</li>
+</ul>
+<h5 id="primarschlussel-attribut-primary-key">Primärschlüssel-Attribut (Primary Key)</h5>
+<ul>
+<li>Ein Primärschlüssel wird verwendet, um einen Datensatz eindeutig zu identifizieren. Ein Schlüsselfeld bedient sich dabei eines Attributs.</li>
+<li>Ein Schlüsselfeld wird durch ein Attribut (Ellipse) dargestellt. Der Text ist dabei im Gegensatz zu weiteren Attributen <strong>unterstrichen</strong>. Nach LF7-Konvention wird der Primärschlüssel genau so benannt wie seine Entität und erhält die Großbuchstaben <strong>PK</strong> angehängt.</li>
+<li>Im Beispiel sind <code>schuelerPK</code>, <code>raumPK</code>, <code>projektPK</code>, <code>benoetigtPK</code>, <code>werkzeugPK</code> die Primärschlüssel-Attribute.</li>
+</ul>
+<h5 id="fremdschlussel-attribut-foreign-key">Fremdschlüssel-Attribut (Foreign Key)</h5>
+<ul>
+<li>Der Fremdschlüssel ist ein Attribut, welches sich auf den Primärschlüssel einer anderen Entität bezieht (er referenziert den Primärschlüssel). Durch den Fremdschlüssel kann eine Beziehung zwischen zwei Tabellen erst wirklich realisiert werden.</li>
+<li>Im LF7 wird der Name des Fremdschlüssels so gebildet, dass der Primärschlüssel, auf den er sich bezieht, aufgegriffen wird. Statt <strong>PK</strong> wird aber <strong>FK</strong> angehängt (sowie im ERD gestrichelt umrandet dargestellt).</li>
+<li>Im Beispiel sind:</li>
+<li><code>schuelerFK</code> (in Bezug auf den <code>schuelerPK</code> der Entität <code>schueler</code>)</li>
+<li><code>raumFK</code> (in Bezug auf den <code>raumPK</code> der Entität <code>raum</code>)</li>
+<li><code>projektFK</code> (in Bezug auf den <code>projektPK</code> der Entität <code>projekt</code>)</li>
+<li><code>werkzeugFK</code> (in Bezug auf den <code>werkzeugPK</code> der Entität <code>werkzeug</code>)
+die Fremdschlüssel-Attribute.</li>
+</ul>
+<h5 id="beziehung-relationship">Beziehung (Relationship)</h5>
+<ul>
+<li>Als Beziehung oder Relation bezeichnet man die Verbindung zwischen zwei Entitäten. Durch die Nutzung von Beziehungen sollen im Datenbankentwurf Sachverhalte zwischen zwei Objekten dargestellt werden.</li>
+<li>Eine Beziehung wird im ER-Diagramm als <strong>Raute</strong> dargestellt. Diese verbindet mit Linien zwei Entitäten.</li>
+<li>In dem Beispiel sind <code>reicht_ein</code>, <code>nutzt</code> und <code>benoetigt</code> die Beziehungen. Hieraus wird auch die LF7-Konvention deutlich: Das Wort <em>"hat"</em> passt zwar fast immer, es sollte aber ein möglichst treffendes <strong>Verb</strong> benutzt werden.</li>
+</ul>
+<h5 id="kardinalitaten-cardinalities">Kardinalitäten (Cardinalities)</h5>
+<p>In Datenbanken beschreiben Kardinalitäten die Anzahl der möglichen Beziehungen zwischen Datensätzen in zwei Tabellen.</p>
+<ul>
+<li><strong>1:1 (eins zu eins):</strong> Ein Datensatz in Tabelle A ist mit höchstens einem Datensatz in Tabelle B verknüpft – und umgekehrt.</li>
+<li><strong>1:N (eins zu viele):</strong> Ein Datensatz in Tabelle A kann mit mehreren Datensätzen in Tabelle B verknüpft sein, aber ein Datensatz in Tabelle B gehört nur zu einem Datensatz in Tabelle A.</li>
+<li><strong>N:M (viele zu viele):</strong> Mehrere Datensätze in Tabelle A können mit mehreren Datensätzen in Tabelle B verknüpft sein. Diese Beziehung wird meist über eine Zwischentabelle (Relationstabelle / Beziehungsentität) realisiert.</li>
+</ul>
+<p><strong>Anwendung im Beispiel:</strong></p>
+<ol>
+<li>Zwischen <code>schueler</code> und <code>projekt</code> besteht eine <strong>1:N-Beziehung</strong>: Es kann je Projekt immer nur einen hauptverantwortlichen Schüler geben, ein Schüler kann aber mehrere Projekte im Laufe der Schulzeit einreichen.</li>
+<li><code>projekt</code> und <code>raum</code> stehen ebenfalls in einer <strong>1:N-Beziehung</strong> (bzw. N:1 aus Sicht des Projekts), da ein Projekt fest in genau einem Raum aufgebaut wird. Ein Raum kann aber nacheinander oder modular für mehrere Projekte zugewiesen werden.</li>
+<li>Zwischen <code>projekt</code> und <code>werkzeug</code> besteht eine <strong>N:M-Beziehung</strong>. Bei einem Projekt können verschiedene Werkzeuge zum Einsatz kommen (bspw. Akkuschrauber und Lötkolben), aber andererseits kann ein bestimmtes Werkzeug auch in mehreren Projekten nacheinander eingesetzt werden. Die Einsatzdauer wird dabei direkt an der Beziehung <code>benoetigt</code> festgehalten.</li>
+</ol>
+<hr />
+<h3 id="material-m301-modellierung-von-datenbanken-erstellung-eines-erm-youtube-herr-nm-25-min-videotutorial">Material M|3.0.1: Modellierung von Datenbanken - Erstellung eines ERM (YouTube Herr-NM - 25 Min. Videotutorial)</h3>
+<iframe width="1200" height="675" src="https://www.youtube-nocookie.com/embed/y3B8NLg9Orc?si=K2bZ6NWq5A3XmbdS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<hr />
+<h3 id="arbeitsauftrag-a31-beziehungstypen-unterscheiden">Arbeitsauftrag A|3.1: Beziehungstypen unterscheiden</h3>
+<p>Für die Auftragsabwicklung müssen die fachlichen Abhängigkeiten präzise geregelt sein. Ihnen liegt erneut das folgende ER-Diagramm vor:</p>
+<p><img alt="ERM Kunde Auftrag" src="bilder/03_form_fokus_kunden_auftrag_material.png" /></p>
+<h4 id="aufgabe-1_1">Aufgabe 1</h4>
+<p>Unterscheiden Sie die Beziehungstypen 1:1, 1:N und N:M anhand folgender konkreter Fragen aus dem Manufaktur-Alltag:</p>
+<ul>
+<li>Wie viele Kunden können einen bestimmten Auftrag erteilen?</li>
+<li>Wie viele Aufträge kann ein Stammkunde im Laufe der Zeit aufgeben?</li>
+<li>Wie viele verschiedene Druck-Filamente/Materialien können in einem komplexen Auftrag verbaut werden, und in wie vielen Aufträgen kommt dasselbe Filament zum Einsatz?</li>
+</ul>
+<h4 id="aufgabe-2_1">Aufgabe 2</h4>
+<p>Ordnen Sie den Beispielen aus Aufgabe 1 die jeweiligen Kardinalitäten zu und begründen Sie Ihre Entscheidung.</p>
+<h4 id="aufgabe-3">Aufgabe 3</h4>
+<p>Erläutern Sie, warum im vorgegebenen ER-Diagramm der <code>kundeFK</code> an der Entität <code>Auftrag</code> steht.</p>
+<h4 id="aufgabe-4">Aufgabe 4</h4>
+<p>Erläutern Sie, warum zwischen der Entität <code>Auftrag</code> und der Entität <code>Material</code> die Schlüsselattribute an der Beziehung <code>verwendet</code> stehen.</p>
+<hr />
+<h3 id="material-m310-auflosen-der-nm-beziehung">Material M|3.1.0: Auflösen der N:M-Beziehung</h3>
+<h4 id="nm-beziehungen-im-erm-auflosung-und-umsetzung">N:M-Beziehungen im ERM – Auflösung und Umsetzung</h4>
+<p>In einem Entity-Relationship-Modell (ERM) beschreibt eine <strong>N:M-Beziehung</strong> (Viele-zu-Viele) eine Verbindung, bei der ein Datensatz aus Entität A mit mehreren aus Entität B verknüpft sein kann – und umgekehrt.</p>
+<h4 id="warum-kann-man-nm-beziehungen-nicht-direkt-umsetzen">Warum kann man N:M-Beziehungen nicht direkt umsetzen?</h4>
+<p>Relationale Datenbanksysteme erlauben keine direkte Speicherung von N:M-Beziehungen in einer einzigen Tabelle. Das liegt daran, dass:</p>
+<ul>
+<li>eine relationale Tabelle immer nur eindeutige Tupel (Zeilen) enthalten darf,</li>
+<li>Fremdschlüsselbeziehungen in relationalen Tabellen immer 1:1 oder 1:N sein müssen.</li>
+</ul>
+<p>Daher muss jede N:M-Beziehung durch eine <strong>Beziehungsentität</strong> aufgelöst werden.</p>
+<h4 id="beispiel-projekt-werkzeug-in-der-schulwerkstatt">Beispiel: Projekt &amp; Werkzeug in der Schulwerkstatt</h4>
+<p>Ein Schüler nutzt für ein Projekt in der Schulwerkstatt mehrere Werkzeuge/Geräte. Ein Werkzeug (z. B. ein Akkuschrauber) kann in vielen Projekten zum Einsatz kommen, und ein Projekt benötigt mehrere Werkzeuge. Das ist eine klassische N:M-Beziehung zwischen <code>projekt</code> und <code>werkzeug</code>.</p>
+<p>Die Abbildung 1 ist bereits ein gültiges ERM, allerdings wird in Prüfungsaufgaben häufig die <strong>"Auflösung der N:M-Beziehungen"</strong> gefordert, welche in diesem ersten Schritt noch nicht durchgeführt wurde.</p>
+<p><img alt="noch nicht aufgelöst" src="bilder/03_Projekt_nicht_aufgeloest.png" /></p>
+<p><strong>Abbildung 1:</strong> Noch nicht aufgelöste N:M-Beziehung (<code>projekt</code> → <code>benoetigt</code> → <code>werkzeug</code>)</p>
+<h4 id="losung-einfuhrung-einer-beziehungsentitat-benoetigt">Lösung: Einführung einer Beziehungsentität <code>benoetigt</code></h4>
+<p>Wir modellieren in der Standardnotation:</p>
+<ol>
+<li>
+<p><strong>Entität:</strong> <code>werkzeug</code>:</p>
+<ul>
+<li>werkzeug(<strong>werkzeugPK</strong>, bezeichnung, zustand)</li>
+</ul>
+</li>
+<li>
+<p><strong>Entität:</strong> <code>projekt</code>:</p>
+<ul>
+<li>projekt(projektPK, titel, status, <em>schuelerFK</em>)</li>
+</ul>
+</li>
+<li>
+<p><strong>Beziehungsentität:</strong> <code>benoetigt</code></p>
+<ul>
+<li>benoetigt(<strong>benoetigtPK</strong>, einsatzdauer, <em>projektFK</em>, <em>werkzeugFK</em>)</li>
+</ul>
+</li>
+</ol>
+<h4 id="die-beziehungsentitat-benoetigt-enthalt">Die Beziehungsentität <code>benoetigt</code> enthält:</h4>
+<ul>
+<li>einen <strong>künstlichen Primärschlüssel</strong> <code>benoetigtPK</code> (z. B. <code>"B0042"</code>)</li>
+<li>zwei <strong>Fremdschlüssel</strong> auf die beteiligten Entitäten (<code>projektFK</code>, <code>werkzeugFK</code>)</li>
+<li><strong>zusätzliche Informationen</strong>, die nur die konkrete Beziehung betreffen, z. B. <code>einsatzdauer</code> (in Stunden/Tagen)</li>
+</ul>
+<p>Damit ergibt sich folgendes ERM, welches die fertig aufgelöste N:M-Beziehung enthält (in der Chen-Notation dargestellt durch das doppelt umrandete Beziehungs-Rauten-Symbol mit eigenen Attributen). Dies wäre die korrekte Lösung, wenn die Auflösung der N:M-Beziehung gefordert ist.</p>
+<p><img alt="aufgelöst" src="bilder/03_Projekt_aufgeloest.png" /></p>
+<p><strong>Abbildung 2:</strong> Fertig aufgelöste N:M-Beziehung über die Beziehungsentität <code>benoetigt</code></p>
+<blockquote>
+<p><strong>Achtung:</strong> Die folgende Erläuterung dient nur dem Verständnis und zeigt die spätere technische Sicht.
+Die <strong>Abbildung 3</strong> verdeutlicht, was technisch aus der Beziehungsentität im späteren <strong>Relationalen Datenbankschema</strong> folgt: Die Auflösung der N:M-Beziehung erfolgt durch eine neue Tabelle in der Mitte, welche im relationalen Schema in zwei 1:N-Beziehungen überführt wird. Letztendlich steht das <code>projekt</code> mit der Zwischentabelle in Beziehung (1:N) und das <code>werkzeug</code> ebenfalls (1:N).</p>
+</blockquote>
+<p><img alt="Demo" src="bilder/03_Projekt_Demo.png" /></p>
+<h4 id="warum-ist-die-beziehungsentitat-notwendig">Warum ist die Beziehungsentität notwendig?</h4>
+<ul>
+<li><strong>Technisch zwingend</strong> in relationalen Datenbanken zur Realisierung von Datenstrukturen.</li>
+<li><strong>Ermöglicht Zusatzinformationen</strong> (z. B. <code>einsatzdauer</code>, <code>ausleihedatum</code>, <code>geplante_stunden</code>), die weder rein zum Werkzeug noch rein zum Projekt gehören.</li>
+<li><strong>Saubere Modellierung</strong> im Sinne der 3. Normalform.</li>
+<li><strong>Flexibel erweiterbar</strong> bei zukünftigen Anforderungen im Schulbetrieb.</li>
+</ul>
+<h4 id="kunstlicher-primarschlussel-vs-zusammengesetzter-primarschlussel">Künstlicher Primärschlüssel vs. Zusammengesetzter Primärschlüssel</h4>
+<blockquote>
+<p><strong>Vorsicht IHK:</strong> Die IHK verwendet in den Aufgabestellungen gerne statt des <strong>künstlichen Primärschlüssels</strong> (wie hier benoetigtPK bzw. projekt_werkzeugPK) einen zusammengesetzten Schlüssel. Hier wird dann ein Eintrag in der Beziehungsentität durch die Kombination zweier oder noch mehr Attributen eindeutig.</p>
+</blockquote>
+<p>Ein <strong>künstlicher Primärschlüssel</strong> ist ein eigenständiges, fortlaufendes Feld (z. B. eine ID oder Auto-Increment-Zahl), das keinen fachlichen Bezug zu den Daten hat und nur zur technischen Eindeutigkeit existiert.</p>
+<p><img alt="Künstlicher PK" src="bilder/03_Projekt_PK_k%C3%BCnstlich.png" /></p>
+<p>Ein <strong>zusammengesetzter Primärschlüssel</strong> besteht aus der Kombination mehrerer bereits vorhandener Attribute (häufig den beiden Fremdschlüsseln der beteiligten Entitäten). Damit eine Kombination wirklich eindeutig ist, werden je nach Fall ein oder mehrere weiter Attribute benötigt. Für das o.g. Beispiel könnte dies so aussehen:</p>
+<p><img alt="Zusammengesetzter PK" src="bilder/03_Projekt_PK_zusammengesetzt.png" /></p>
+<p>Das Datum wird als dritter Schlüssel in der Kombination gebraucht, da ansonsten ein Werkzeug nur einmal in einem Projekt benutzt werden könnte. Hier ist es nun möglich dasselbe Werkzeug im Projekt an unterschiedlichen Tagen zu verwenden. Sollte eine noch feinere Nutzung abgebildet werden könnten Start- und End-Uhrzeit der Verwendung ebenfalls noch als Schlüssel hinzugezogen werden, sodass ein Werkzeug zwischen bspw. 8 und 10 Uhr sowie 15 und 16 Uhr am selben Tag verwendet werden könnte. Dieser Aufwand entfällt beim o.g. künstlichen Schlüssel.</p>
+<hr />
+<h2 id="kompetenz-31-er-diagramme-vervollstandigen-und-erstellen">Kompetenz 3.1: ER-Diagramme vervollständigen und erstellen</h2>
+<p>Der Berater-Entwurf war unvollständig. Es fehlen Ansprechpartner, Lieferadressen und Auftragspositionen. Sie wollen das Modell entsprechend ergänzen.</p>
+<figure style="max-width: 100%; margin: 1em 0; text-align: center;"> 
+     <img src="bilder/03_kundendaten.png" alt="Verwaltung der Kundendaten in der Form & Fokus Manufaktur GmbH" style="width: 100%; height: auto; border-radius: 6px;"> 
+     <figcaption style="font-size: 0.85em; color: #555555; margin-top: 6px; font-style: italic;"> 
+         Abb.: Verwaltung der Kundendaten in der Form & Fokus Manufaktur GmbH <span style="font-style: normal; opacity: 0.8;">(🤖 KI-generiert)</span> 
+     </figcaption> 
+</figure>
+
+<hr />
+<h3 id="arbeitsauftrag-a32-vervollstandigung-der-kunden-und-auftragsverwaltung">Arbeitsauftrag A|3.2: Vervollständigung der Kunden- und Auftragsverwaltung</h3>
+<h4 id="aufgabe-1_2">Aufgabe 1</h4>
+<p>Ergänzen Sie das vorgegebene ERM der Kunden- und Auftragsverwaltung um fehlende Attribute und Entitäten (E-Mail, Lieferanschrift des Kunden, Erstellungsdatum des Auftrags, Lieferstatus (offen, in Bearbeitung, zugestellt), Datum der Wunschfertigstellung). Beachten Sie dabei die 3. Normalform.</p>
+<h4 id="aufgabe-2_2">Aufgabe 2</h4>
+<p>Fügen Sie die benötigten Beziehungen ein und tragen Sie die korrekten Kardinalitäten an den Beziehungsrauten ein.</p>
+<h4 id="aufgabe-3_1">Aufgabe 3</h4>
+<p>Nach Abstimmung mit den anderen Mitarbeitenden der Form &amp; Fokus Manufaktur stellen Sie fest, dass es immer wieder zu abweichenden Rechnungs- und Lieferanschriften kommt. Verändern Sie das ER-Diagramm so, dass die Unterscheidung ermöglicht wird. Beachten Sie dabei die 3. Normalform und das Auflösen von N:M-Beziehungen.</p>
+<hr />
+<h3 id="arbeitsauftrag-a33-erstellung-eines-er-diagramms-fur-die-material-und-lagerhaltung">Arbeitsauftrag A|3.3: Erstellung eines ER-Diagramms für die Material- und Lagerhaltung</h3>
+<p>Um Produktionsstopps bei den 3D-Druckern und Lasercuttern zu vermeiden, muss der Materialbestand (Filamentrollen z. B. PLA/PETG/ABS, Harze, Acrylplatten) und deren Lagerorte erfasst werden.</p>
+<h4 id="aufgabe-1_3">Aufgabe 1</h4>
+<p>Identifizieren Sie die relevanten Entitäten.</p>
+<h4 id="aufgabe-2_3">Aufgabe 2</h4>
+<p>Bestimmen Sie geeignete Attribute und Primärschlüssel.</p>
+<h4 id="aufgabe-3_2">Aufgabe 3</h4>
+<p>Zeichnen Sie ein eigenständiges ER-Diagramm für die Material- und Lagerhaltung inklusive aller Kardinalitäten. Berücksichtigen Sie die 3. Normalform, lösen Sie N:M-Beziehungen auf.</p>
+<hr />
+<h3 id="arbeitsauftrag-a34-verknupfung-der-beiden-datenmodelle">Arbeitsauftrag A|3.4: Verknüpfung der beiden Datenmodelle</h3>
+<p>Ein Auftrag kann erst produziert werden, wenn das benötigte Material disponiert ist. Nun sollen Kundenauftrag und Materialwirtschaft zusammengeführt werden.</p>
+<h4 id="aufgabe-1_4">Aufgabe 1</h4>
+<p>Analysieren Sie die Schnittstelle zwischen der Kunden- und Auftragsverwaltung sowie der Material- und Lagerhaltung. An welcher Stelle sind die Daten sinnvoll miteinander zu verknüpfen.</p>
+<h4 id="aufgabe-2_4">Aufgabe 2</h4>
+<p>Verknüpfen Sie die ER-Diagramme aus A|3.2: Vervollständigung der Kunden- und Auftragsverwaltung und A|3.3: Erstellung eines ER-Diagramms für die Material- und Lagerhaltung zu einem Gesamtmodell. Berücksichtigen Sie die 3. Normalform, lösen Sie N:M-Beziehungen auf.</p>
+<hr />
+<h2 id="kompetenz-32-er-diagramm-in-das-relationale-datenbankschema-uberfuhren">Kompetenz 3.2: ER-Diagramm in das Relationale Datenbankschema überführen</h2>
+<p>Die Form &amp; Fokus Manufaktur hat ihre Kunden, Aufträge und Materialien erfolgreich in einem ER-Diagramm modelliert. Doch beim Versuch, dieses visuelle Konzept direkt in eine relationale Datenbank einzupflegen, folgt die Ernüchterung.</p>
+<p>Weder vielschichtige Beziehungen noch Kardinalitäten lassen sich eins zu eins in starre Tabellen übertragen. Der fachliche Entwurf der Manufaktur spricht schlicht eine andere Sprache als das technische Zielsystem. Wie schlagen wir nun die Brücke vom visuellen Modell zum funktionierenden relationalen Schema?</p>
+<figure style="max-width: 100%; margin: 1em 0; text-align: center;"> 
+     <img src="bilder/03_rel_db_planung.png" alt="Planung eines Relationalen Datenbankschemas" style="width: 100%; height: auto; border-radius: 6px;"> 
+     <figcaption style="font-size: 0.85em; color: #555555; margin-top: 6px; font-style: italic;"> 
+         Abb.: Planung eines Relationalen Datenbankschemas <span style="font-style: normal; opacity: 0.8;">(🤖 KI-generiert)</span> 
+     </figcaption> 
+ </figure>
+
+<hr />
+<h3 id="arbeitsauftrag-a35-relationales-datenbankschema-vom-erm-abgrenzen">Arbeitsauftrag A|3.5: Relationales Datenbankschema vom ERM abgrenzen</h3>
+<p>Die Geschäftsführung versteht nicht, warum das grafische ER-Diagramm nicht direkt so als Tabelle in eine Datenbank eingespielt werden kann.</p>
+<h4 id="aufgabe-1_5">Aufgabe 1</h4>
+<p>Arbeiten Sie die strukturellen und konzeptionellen Unterschiede zwischen einem fachlich-konzeptionellen ER-Modell und einem technisch-implementierungsnahen Relationalen Datenbankschema heraus.</p>
+<h4 id="aufgabe-2_5">Aufgabe 2</h4>
+<p>Erläutern Sie insbesondere das Problem von N:M-Beziehungen in relationalen Datenbanken.</p>
+<hr />
+<h3 id="material-m350-das-relationale-datenbankschema">Material M|3.5.0: Das relationale Datenbankschema</h3>
+<h4 id="relationales-datenbankmodell">Relationales Datenbankmodell</h4>
+<p>Das Relationale Datenbankmodell ist das am weitverbreitetste Datenmodell, welches in der Datenbankentwicklung als Standard genutzt wird. Das Fundament des Datenbankmodells besteht aus vier Elementen: Tabellen, Attributen, Beziehungen und die Grundlagen der relationalen Algebra.</p>
+<p>Sie stellt eine mathematische Beschreibung einer Tabelle und ihre Beziehung zu anderen möglichen Tabellen dar. Die Operationen auf diese Relationen werden durch die relationale Algebra bestimmt.</p>
+<p>Des Weiteren ist die relationale Algebra auch die Grundlage für die Datenbanksprache SQL.</p>
+<p>Auch wenn die mathematische Gewichtung und die Abstraktion der Daten in diesem Modell sehr stark ist, sind relationale Datenbankmodelle vergleichsweise sehr einfach und flexibel zu erstellen.</p>
+<h4 id="eigenschaften-vom-relationalen-datenbankmodell">Eigenschaften vom Relationalen Datenbankmodell</h4>
+<p>Das relationale Datenbankmodell besteht aus drei wichtigen Bausteinen:</p>
+<ul>
+<li>Tabellen</li>
+<li>Attributen</li>
+<li>Beziehungen</li>
+</ul>
+<p>Ein Relationales Datenbankmodell ist eine Ansammlung von Tabellen, die miteinander verknüpft sind. Jede Zeile (auch Tupel genannt) in einer Tabelle ist ein Datensatz. Jedes Tupel besteht aus einer großen Reihe von Eigenschaften (Attributen), den Spalten der Tabelle. Ein Relationsschema legt dabei die Anzahl und den (Daten-) Typ der Attribute für eine Tabelle fest.</p>
+<p>Des Weiteren können Verknüpfungen (Beziehungen) über sogenannte Primärschlüssel hergestellt werden, um bestimme Attribute, die den gleichen Primärschlüssel oder in einer Detailtabelle als Fremdschlüssel besitzen, abzufragen.</p>
+<h4 id="beispiel-fur-ein-relationales-datenbankschema">Beispiel für ein Relationales Datenbankschema</h4>
+<p>Wir überführen das ERM aus dem Informationsmaterial M|3.1.0: Auflösen der N:M-Beziehung in das relationale Datenbankschema. Hier die Ausgangssituation:</p>
+<p><img alt="ERM" src="bilder/03_Projekt_vollst%C3%A4ndig.png" /></p>
+<p>Nach der Überführung in die Tabellen-Struktur für jede einzelne Entität sowie der Zuordnung von Schlüsselattributen und Datentypen sieht das fertige Schema wie folgt aus:</p>
+<p><img alt="Rel DB Schema" src="bilder/03_Projekt_vollst%C3%A4ndig_relDB.png" /></p>
+<h4 id="hinweise">Hinweise:</h4>
+<ul>
+<li>Die Beziehungen sind nun nur noch Kanten, keine Rauten mehr.</li>
+<li>Die Beziehungen verlassen eine Entität auf Höhe des Fremdschlüssels und zeigen auf die Höhe des dazugehörigen Primärschlüssels.</li>
+<li>Die N:M-Beziehung wurde gemäß Abbildung 3 im Informationsmaterial M|2.1.1: N:M-Beziehungen auflösen nun in 1:N-Beziehungen überführt.</li>
+<li>Die Datentypen bei Primär- und Fremdschlüssel müssen identisch sein,</li>
+<li>Der Primärschlüssel wird immer ganz oben angegeben.</li>
+<li>Die weiteren Attribute (auch die Fremschlüssel) kommen dann in der Reihenfolge, wie später die Tabelle von links nach rechts gelesen aufgebaut sein soll.</li>
+<li>Der Primärschlüssel kann auch in der Praxis als VARCHAR gewählt werden, damit der bregenzte Zahlenraum des INT kein Problem darstellt. Außerdem werden bspw. Kundennummern im Beispiel mit K001 angegeben, sind demnach keine reinen Zahlenwerte (und selbst wenn, dann würde man VARCHAR wählen, da mit Kundennummern nicht gerechnet werden muss).</li>
+<li>Der Datentyp DECIMAL(10,2) begrenzt den Einsatz auf eine Höhe von 99.999.999,99 Minuten.</li>
+<li></li>
+</ul>
+<hr />
+<h3 id="material-m351-modellierung-von-datenbanken-erstellung-eines-relationalen-datenbankschemas-youtube-herr-nm-16-min-videotutorial">Material M|3.5.1: Modellierung von Datenbanken - Erstellung eines relationalen Datenbankschemas (YouTube Herr-NM - 16 Min. Videotutorial)</h3>
+<iframe width="1200" height="675" src="https://www.youtube-nocookie.com/embed/ufBd4Aj8ZSQ?si=WSZUAsw3UIkLOebb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<hr />
+<h3 id="arbeitsauftrag-a36-erstellung-eines-relationalen-datenbankschemas">Arbeitsauftrag A|3.6: Erstellung eines Relationalen Datenbankschemas</h3>
+<p>Überführen Sie das Gesamtergebnis aus A|3.4: Verknüpfung der beiden Datenmodelle in ein valides relationales Schemamodell.</p>
+<h4 id="aufgabe-1_6">Aufgabe 1</h4>
+<p>Notieren Sie sich als Zwischenschritt alle Entitäten und ihre Attribute als "Kurzschreibweise" in der Standardnotation.</p>
+<h4 id="aufgabe-2_6">Aufgabe 2</h4>
+<p>Lösen Sie alle N:M-Beziehungen (z.B. zwischen Auftrag und Material) durch die Einführung geeigneter Zwischentabellen / Beziehungsentitäten (z.B. Auftragsposition) in zweifache 1:N-Beziehungen auf. Ergänzen Sie somit die Kurzschreibweise der Datenbank.</p>
+<h4 id="aufgabe-3_3">Aufgabe 3</h4>
+<p>Kennzeichnen Sie Primärschlüssel (unterstrichen) und Fremdschlüssel (gestichelt unterstrichen oder in Kursivschrift) eindeutig.</p>
+<h4 id="aufgabe-4_1">Aufgabe 4</h4>
+<p>Legen Sie das relationale Datenbankschema mit allen Entitäten, Attributen und ihren Verbindungen zueinander an. Verwenden Sie hierfür die MySQL-Datentypen.</p>
+<hr />
+<h3 id="material-m360-mysql-datentypen">Material M|3.6.0: MySQL-Datentypen</h3>
+<p><strong>Numerische Datentypen für ganzzahlige Werte</strong></p>
+<p>In Feldern dieses Datentyps werden ganzzahlige Werte (Integer-Zahlen) ohne Kommastellen gespeichert.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Datentyp</th>
+<th style="text-align: left;">Speicherbedarf</th>
+<th style="text-align: left;">Wertebereich</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">SMALLINT</td>
+<td style="text-align: left;">2 Byte</td>
+<td style="text-align: left;">-32768 bis +32767</td>
+</tr>
+<tr>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">4 Byte</td>
+<td style="text-align: left;">-2147483648 bis +2147483647</td>
+</tr>
+</tbody>
+</table>
+<p>Integer-Datentypen eignen sich besonders für eindeutige Identifikationsnummern, z.B. Primärschlüssel einer Tabelle. Der Zugriff auf solche Datenfelder erfolgt besonders schnell, da Prozessoren in Computern für Zahlenwerte optimiert sind.</p>
+<hr />
+<p><strong>Numerische Datentypen für Fließkommazahlen</strong></p>
+<p>Mit diesen Datentypen können Sie Zahlenwerte mit Nachkommastellen speichern. Die Datentypen unterschieden sich dabei im Wertebereich.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Datentyp</th>
+<th style="text-align: left;">Speicherbedarf</th>
+<th style="text-align: left;">Wertebereich</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">FLOAT (n)</td>
+<td style="text-align: left;">4 oder 8 Byte</td>
+<td style="text-align: left;">Die Gesamtstellenanzahl kann durch n festgelegt werden. Je nach Angabe von n können 7 bis 15 signifikante Stellen plattformunabhängig gespeichert werden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">DOUBLE PRECISION</td>
+<td style="text-align: left;">8 Byte</td>
+<td style="text-align: left;">15 signifikante Stellen (keine plattformunabhängige Speicherung)</td>
+</tr>
+</tbody>
+</table>
+<p>Die Datentypen können einen Zahlenwert mit der angegeben Anzahl an Gleitkommastellen speichern. Alle Ziffern nach der Anzahl signifikanter Stellen werden abgeschnitten, daher wird bei diesen Datentypen nicht immer die genaue Größe gespeichert, sondern die näherungsweise Größe.</p>
+<hr />
+<p><strong>Numerische Datentypen für Festkommazahlen</strong></p>
+<p>Diese Datentypen eignen sich für das Speichern formatierter Zahlen mit einer festen Anzahl von Nachkommastellen. Damit können z.B. Währungsangaben oder Messwerte gespeichert werden.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Datentyp</th>
+<th style="text-align: left;">Wertebereich</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">DECIMAL(Präzision, Skalierung)</td>
+<td style="text-align: left;">Der Parameter Präzision (1-15) legt die Gesamtzahl der signifikanten Stellen der Zahl fest. Der Parameter Skalierung (1-15) bestimmt die Anzahl der Nachkommastellen, die kleiner oder gleich der Gesamtzahl der Stellen sein muss. Der DECIMAL-Datentyp definiert die minimale Anzahl der signifikanten Stellen.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Datentypen für Datums- und Zeitwerte</strong></p>
+<p>Für Datums- und Zeitwerte gibt es spezielle Datentypen. Abhängig vom Datenbank-Server werden unterschiedliche Wertebereiche zugelassen.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Datentyp</th>
+<th style="text-align: left;">Wertebereich</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">DATE</td>
+<td style="text-align: left;">1000-01-01 bis 9999-12-31</td>
+</tr>
+<tr>
+<td style="text-align: left;">DATETIME</td>
+<td style="text-align: left;">1000-01-01 00:00:00 bis 9999-12-13 23:59:59</td>
+</tr>
+</tbody>
+</table>
+<p>Der Type DATE erlaubt die Benutzung eines Datums ohne Zeitangabe. MySQL ruft DATE-Werte im Format 'YYYY-MM-DD' ab und zeigt sie auch so an.</p>
+<hr />
+<p><strong>Datentypen für Zeichen und Texte</strong></p>
+<p>Es gibt verschiedene Datentypen für die Speicherung von Textinformationen. Hierbei existieren verschiedene Datentypen mit variabler und fester Menge.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Datentyp</th>
+<th style="text-align: left;">Wertebereich</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">CHAR(Länge)</td>
+<td style="text-align: left;">Dieser Datentyp dient zum Speichern beliebiger Textinformationen. Die maximale Länge wird damit als Parameter angegeben (Länge = 1 bis 255). Unabhängige von der tatsächlichen Länge der gespeicherten Information wird stets die bei der Definition angegebene Anzahl an Zeichen gespeichert.</td>
+</tr>
+<tr>
+<td style="text-align: left;">VARCHAR(Länge)</td>
+<td style="text-align: left;">Zum Speichern beliebiger Textinformationen wird auch dieser Typ verwendet. Auch hier wird die maximale Länge (1 bis 255) als Parameter übergeben. In ein Datenfeld dieses Typs eingehender Text wird in seiner tatsächlichen Länge gespeichert.</td>
+</tr>
+<tr>
+<td style="text-align: left;">BLOB</td>
+<td style="text-align: left;">Dieser Datentyp (Binary Large Objects) wird zum Speichern großer, auch binärer Datenmengen eingesetzt, z.B. sehr großer Textdateien, Grafiken, Bilder oder Videos.</td>
+</tr>
+<tr>
+<td style="text-align: left;">TEXT</td>
+<td style="text-align: left;">Wie auch in BLOB-Feldern können Sie hier größere Informationsmengen mit variabler Länge speichern. Der Unterschied zu BLOB-Feldern liegt in der anderen Sortierreihenfolge, die bei TEXT-Feldern unabhängig von der Groß- und Kleinschreibung ist.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Die Verarbeitung des Datentyps CHAR erfolgt schneller als auf VARCHAR-Datenfeldern.</li>
+<li>VARCHAR-Datenfelder hingegen eignen sich besonders für die Speicherung von unterschiedlich langen Texten.</li>
+</ul>
+<hr />
+<p><strong>Logischer Datentyp</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Datentyp</th>
+<th style="text-align: left;">Erklärung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">BOOLEAN</td>
+<td style="text-align: left;">Logische Werte Ja/Nein bzw. True/False. NULL ist ebenfalls möglich und wird als UNKNOWN interpretiert.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="handlungsergebnis">Handlungsergebnis</h2>
+<p>Sie haben sich ausführlich mit der Planung und Modellierung von Datenbanken beschäftigt und sind nun in der Lage einen Datenbestand sinnvoll zu organisieren, ohne in typische Fehlerquellen zu laufen. Um auch im Fachgespräch mit der Geschäftsführung oder mit Anwendungsentwicklern in der Lage zu sein, die Begrifflichkeiten korrekt zu verwenden und Modelle gezielt einzusetzen, fertigen Sie sich ein Informationsblatt an.</p>
+<figure style="max-width: 100%; margin: 1em 0; text-align: center;">
+  <img src="bilder/03_handlungsergebnis.png" alt="Form & Fokus Manufaktur GmbH Dashboard" style="width: 100%; height: auto; border-radius: 6px;">
+
+  <!-- Bildunterschrift mit KI-Kennzeichnung -->
+  <figcaption style="font-size: 0.85em; color: #555555; margin-top: 6px; font-style: italic;">
+    Abb.: Digitalisiertes Dashboard der Form &amp; Fokus Manufaktur GmbH. <span style="font-style: normal; opacity: 0.8;">(🤖 KI-generiert)</span>
+  </figcaption>
+</figure>
+
+<hr />
+<h3 id="arbeitsauftrag-a37-aufbereitung-der-datenhaltung-fur-das-kundengesprach">Arbeitsauftrag A|3.7: Aufbereitung der Datenhaltung für das Kundengespräch</h3>
+<p>Bereiten Sie ein Dokumentations-Handout als One-Pager für das Fachgespräch mit der Geschäftsführung der Form &amp; Fokus Manufaktur GmbH vor.</p>
+<p>Inhaltliche Schwerpunkte der Präsentation:</p>
+<ul>
+<li>Visualisierung: Gegenüberstellung des fachlichen ERM und des finalen relationalen Schemas.</li>
+<li>Auflösung von N:M-Komplexitäten: Erklären Sie der Geschäftsleitung verständlich, wie und warum die N:M-Beziehung zwischen Auftrag und Material über die Beziehungsentität Auftragsposition mit Mengenangaben (Verbrauchsmenge) aufgelöst wurde.</li>
+<li>Qualitätssicherung durch Normalisierung (1. bis 3. NF):</li>
+<li>Demonstrative Nachweisführung an der Tabelle Kunde (Atomarisierung von Namen/Adressen → 1. NF).</li>
+<li>Nachweis der 2. NF an der Auftragsposition (Abhängigkeit vom zusammengesetzten Schlüssel).</li>
+<li>Nachweis der 3. NF bezüglich transitiv abhängiger Attribute (z. B. PLZ → Ort).</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Lizenz</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Der KIT LF7 DB Kurs</span> von <a xmlns:cc="http://creativecommons.org/ns#" href="https://herr-nm.github.io/MMBbS_KIT_LF07DB/" property="cc:attributionName" rel="cc:attributionURL">André Neumann</a> ist lizenziert unter einer <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>. Fragen, Hinweise etc. an neumann@mmbbs.de.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
