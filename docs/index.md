@@ -1,6 +1,6 @@
-# KSM - LF13 - Netzwerkinfrastruktur planen und kalkulieren
+# KIT - LF7 (Datenbanken) - Softwareprojekte durchführen
 
-**Willkommen im LF13-Kurs der Kaufleute für IT-System-Management an den MMBbS.**
+**Willkommen im LF07-Datenbanken-Kurs der kaufmännischen IT-Berufe an den MMBbS.**
 
 <br>
 
