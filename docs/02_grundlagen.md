@@ -524,8 +524,8 @@ Tabelle **`Material`**
 
 **Ergebnis:** Die Daten sind nun frei von Redundanzen. Ändert sich beispielsweise der Preis für `PLA Schwarz`, muss dieser Wert in der Tabelle **`Material`** exakt an *einer einzigen Stelle* angepasst werden. **Änderungs-, Einfüge- und Löschanomalien sowie inkonsistente Daten sind damit vollständig ausgeschlossen.**
 
-## Zusätzliches Material, weitere Übungen & Tipps
-
-**Übungen**
-
-Übung UE|2.0: 
+{%
+   include-markdown "inhalte/lizenzhinweis.md"
+   start="<!--include-start-->"
+   end="<!--include-end-->"
+%}

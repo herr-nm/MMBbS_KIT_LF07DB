@@ -18,8 +18,8 @@ Um das Wachstum zu bewältigen, wurde eine neue Stelle für die digitale Transfo
 
 ![Logo Form & Fokus](bilder/01_Form&Fokus_Logo.png)
 
-## Zusätzliches Material, weitere Übungen & Tipps
-
-**Zusatzmaterial**
-
-
+{%
+   include-markdown "inhalte/lizenzhinweis.md"
+   start="<!--include-start-->"
+   end="<!--include-end-->"
+%}

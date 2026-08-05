@@ -533,3 +533,9 @@ Inhaltliche Schwerpunkte der Präsentation:
   - Demonstrative Nachweisführung an der Tabelle Kunde (Atomarisierung von Namen/Adressen → 1. NF).
   - Nachweis der 2. NF an der Auftragsposition (Abhängigkeit vom zusammengesetzten Schlüssel).
   - Nachweis der 3. NF bezüglich transitiv abhängiger Attribute (z. B. PLZ → Ort).
+
+{%
+   include-markdown "inhalte/lizenzhinweis.md"
+   start="<!--include-start-->"
+   end="<!--include-end-->"
+%}
